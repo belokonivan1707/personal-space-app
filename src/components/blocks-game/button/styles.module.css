@@ -1,0 +1,26 @@
+.button {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  padding: 0 35px 0 35px;
+  background-color: black;
+  border: none;
+  transition: 0.5s;
+  cursor: pointer;
+  border: 1px solid black;
+  box-sizing: border-box;
+  font-family: 'Open Sans Condensed';
+  font-size: 15px;
+  font-weight: bolder;
+  line-height: 50px;
+  letter-spacing: 0.5px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+  box-sizing: border-box;
+}
