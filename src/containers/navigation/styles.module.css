@@ -1,0 +1,44 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 30px;
+  background: black;
+}
+
+.menu {
+}
+
+.item {
+  width: fit-content;
+  margin-left: 15px;
+  padding: 0 15px;
+  line-height: 56px;
+  border: none;
+  outline: none;
+}
+
+.huburgerMenuBox {
+  display: none;
+}
+
+@media (max-width: 375px) {
+  .navigation {
+    height: 60px;
+  }
+  .huburgerMenuBox {
+    display: block;
+    height: 50px;
+    width: 50px;
+  }
+
+  .menu {
+    display: none;
+  }
+}
+
+@media (max-width: 375px) {
+  .navigation {
+    /* display: none; */
+  }
+}

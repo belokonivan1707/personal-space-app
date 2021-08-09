@@ -5,12 +5,14 @@ import { filmsType } from '../../../store/cinema/data';
 import RatingStar from '../../stars/stars';
 import BlackStar from '../../../assets/stars/black-star.svg';
 import Star from '../../../assets/stars/star.svg';
+import BlackLike from '../../../assets/black-like/like.svg';
+import EmptyLike from '../../../assets/black-like/empty-like.svg';
 import style from './styles.module.css';
 
 const CinemaCart = ({ props }: any) => {
   const dispatch = useDispatch();
 
-  const { id, title, director, image, year, rating }: filmsType = props;
+  const { id, title, director, image, year, rating, faivorite }: filmsType = props;
 
   console.log('render CinemaCart');
 
@@ -28,19 +30,23 @@ const CinemaCart = ({ props }: any) => {
           backgroundImage: `url(${image})`,
         }}
       />
+      <div className={style.like} style={{ backgroundImage: `url(${faivorite ? BlackLike : EmptyLike})` }} />
       <div className={style.description}>
         <h4 className={style.title}>{title}</h4>
         <p className={style.directed}>Directed by: </p>
         <p className={style.author}>{director}</p>
-        <p className={style.year}>{year}</p>
-        <div className={style.ratingBox}>
-          {array.map((el: number) => {
-            return el <= rating ? (
-              <RatingStar key={el} id={el} star={BlackStar} handleClick={changeStar} />
-            ) : (
-              <RatingStar key={el} id={el} star={Star} handleClick={changeStar} />
-            );
-          })}
+
+        <div className={style.yearRatingBox}>
+          <p className={style.year}>{year}</p>
+          <div className={style.ratingBox}>
+            {array.map((el: number) => {
+              return el <= rating ? (
+                <RatingStar key={el} id={el} star={BlackStar} handleClick={changeStar} />
+              ) : (
+                <RatingStar key={el} id={el} star={Star} handleClick={changeStar} />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

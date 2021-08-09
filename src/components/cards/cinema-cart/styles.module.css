@@ -1,7 +1,7 @@
 .cart {
+  position: relative;
   width: 100%;
   max-width: 450px;
-  height: 500px;
   margin: 0 10px 30px 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
@@ -17,37 +17,58 @@
   border-radius: 16px 16px 0 0;
 }
 
+.like {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 15px;
+  right: 15px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .description {
   padding: 0px 15px 0px 15px;
 }
 
 .title {
-  margin-bottom: 10px;
-  font-size: 26px;
-  line-height: 38px;
-  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 26px;
   color: #3c3e43;
 }
 
 .directed {
+  margin-bottom: 5px;
   font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
+  font-weight: 500;
+  line-height: 16px;
   letter-spacing: -0.2px;
   color: #3c3e43;
 }
 
 .author {
-  margin-bottom: 10px;
-  font-size: 25px;
-  line-height: 28px;
-  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.5px;
   color: #3c3e43;
 }
 
+.yearRatingBox {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
 .year {
-  font-size: 25px;
-  line-height: 28px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26px;
   letter-spacing: 0.5px;
   color: #3c3e43;
 }

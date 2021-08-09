@@ -1,48 +1,54 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionChangeColorInSequenseToBlack, actionChangeColorInSequenseToDarkgray } from 'store/blocks-game/action';
 import Block from '../../components/blocks-game/block/block';
 // import style from './styles.module.css';
 
 // interface Props {
-//   count: number;
+//   blocks: any;
+//   time: any;
+//   handleClickChangeColor: (id: any) => void;
 // }
 
-const Blocks = ({ blocks, time }: any) => {
-  const [color, setColor] = useState<string>('white');
-  const [selectedSequence, setSelectedSequence] = useState<number[] | []>([]);
-  console.log('BLOCKS');
-  console.log(selectedSequence);
-
-  const selectSequence = (blockId: number) => {
-    setSelectedSequence([...selectedSequence, blockId]);
-  };
+const Blocks = () => {
+  const dispatch = useDispatch();
+  const [check, setCheck] = useState(false);
+  const { randomSequence, time, colorChanged }: any = useSelector<any, any>(state => state.blocksGame);
+  console.log('blocks component render');
 
   useEffect(() => {
+    console.log('dispatch make color black');
     const timer = setTimeout(() => {
-      setColor('black');
-    }, 2000);
+      dispatch(actionChangeColorInSequenseToBlack());
+      setCheck(true);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
     };
   }, []);
 
-  if (time > 3000) {
-    setTimeout(() => {
-      setColor('cornsilk');
+  useEffect(() => {
+    console.log('dispatch make color gray');
+    const timer = setTimeout(() => {
+      dispatch(actionChangeColorInSequenseToDarkgray());
     }, time);
-  }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [check]);
 
   return (
     <div>
-      {blocks?.map((el: any) => {
+      {randomSequence?.map((el: any) => {
         return (
           <Block
             key={el.id}
             id={el.id}
-            count={el.linear}
             linear={el.linear}
-            color={color}
-            handleClick={selectSequence}
+            color={el.color}
+            // handleClick={selectSequence}
           />
         );
       })}

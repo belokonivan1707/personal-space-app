@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { actionSetRandomSequence } from 'store/blocks-game/action';
 import Button from 'components/blocks-game/button/button';
 import Blocks from '../../containers/blocks/blocks';
-// import Block from '../../components/blocks-game/block/block';
 import style from './styles.module.css';
 import { ButtonsArray } from './types';
 
@@ -11,24 +12,23 @@ const BlockGamepage = () => {
     { id: 5, title: 'Medium' },
     { id: 7, title: 'Hard' },
   ];
-
+  const dispatch = useDispatch();
   const [difficulty, setDifficulty] = useState<number>(0);
-  const [blocks, setBlocks] = useState<any>([]);
-  const [timer, setTimer] = useState<number>(0);
 
-  const selectTheDifficulty = (id: number) => {
-    const localTimer = (id + 1) * 1000;
+  const selectTheDifficulty = useCallback((id: any) => {
+    const timeBeforeRemovingColor = id * 1000;
     setDifficulty(id);
-    setTimer(localTimer);
 
     const array: any = [];
     for (let block = 0; block < id; block += 1) {
       array.push({ id: block, linear: block, color: 'white' });
     }
-
     array.sort(() => 0.5 - Math.random());
-    setBlocks(array);
-  };
+
+    dispatch(actionSetRandomSequence({ array, timeBeforeRemovingColor }));
+  }, []);
+
+  console.log('BlockGamepage');
 
   return (
     <div className={style.container}>
@@ -47,14 +47,9 @@ const BlockGamepage = () => {
           </div>
         )}
       </div>
-      <div className={style.gameSection}>
-        {/* {blocks.map((el: any) => {
-          return <Block key={el.id} count={el.linear} color={el.color} linear={el.linear} time={difficulty} />;
-        })} */}
-      </div>
-      <div className={style.gameSection}>{blocks ? <Blocks blocks={blocks} time={timer} /> : null}</div>
+      <div className={style.gameSection}>{difficulty ? <Blocks /> : null}</div>
     </div>
   );
 };
 
-export default BlockGamepage;
+export default React.memo(BlockGamepage);

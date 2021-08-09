@@ -12,7 +12,6 @@ const Cinemapage = () => {
 
   return (
     <div>
-      <div>Cinema Page</div>
       <div className={style.cartContainer}>
         {cinema.map((film: filmsType) => {
           return <CinemaCart key={film.id} props={film} />;
