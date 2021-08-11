@@ -1,23 +1,38 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionChangeColorInSequenseToBlack, actionChangeColorInSequenseToDarkgray } from 'store/blocks-game/action';
+import {
+  actionChangeColorInSequenseToBlack,
+  actionChangeColorInSequenseToDarkgray,
+  actionCheckUserSequence,
+  actionReloadGame,
+} from 'store/blocks-game/action';
+import { RootState } from 'store/root-reducer';
+import { RandomSequence } from 'pages/blocks-gamepage/block-gamepage';
 import Block from '../../components/blocks-game/block/block';
-// import style from './styles.module.css';
 
-// interface Props {
-//   blocks: any;
-//   time: any;
-//   handleClickChangeColor: (id: any) => void;
-// }
+export interface LocalState {
+  randomSequence: RandomSequence[];
+  time: number;
+  moveCounter: number;
+  difficult: number;
+  win: unknown | boolean;
+  userStep: number;
+}
 
 const Blocks = () => {
   const dispatch = useDispatch();
   const [check, setCheck] = useState(false);
-  const { randomSequence, time, colorChanged }: any = useSelector<any, any>(state => state.blocksGame);
-  console.log('blocks component render');
+  const { randomSequence, time, moveCounter, difficult, win }: LocalState = useSelector<RootState, LocalState>(
+    state => state.blocksGame
+  );
 
   useEffect(() => {
-    console.log('dispatch make color black');
+    if (moveCounter === difficult) {
+      dispatch(actionCheckUserSequence());
+    }
+  }, [moveCounter]);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(actionChangeColorInSequenseToBlack());
       setCheck(true);
@@ -29,7 +44,6 @@ const Blocks = () => {
   }, []);
 
   useEffect(() => {
-    console.log('dispatch make color gray');
     const timer = setTimeout(() => {
       dispatch(actionChangeColorInSequenseToDarkgray());
     }, time);
@@ -39,18 +53,25 @@ const Blocks = () => {
     };
   }, [check]);
 
+  if (win) {
+    return (
+      <div>
+        you are win
+        <button type="button" onClick={() => dispatch(actionReloadGame())}>
+          try again
+        </button>
+      </div>
+    );
+  }
+
+  if (win === false) {
+    return <div>you are lose</div>;
+  }
+
   return (
     <div>
-      {randomSequence?.map((el: any) => {
-        return (
-          <Block
-            key={el.id}
-            id={el.id}
-            linear={el.linear}
-            color={el.color}
-            // handleClick={selectSequence}
-          />
-        );
+      {randomSequence?.map((el: RandomSequence) => {
+        return <Block key={el.id} item={el} />;
       })}
     </div>
   );

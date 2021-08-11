@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import BooksPage from 'pages/bookspage/bookspage';
 import Navigation from './containers/navigation/navigation';
 import Homepage from './pages/homepage/homepage';
 import BlockGamepage from './pages/blocks-gamepage/block-gamepage';
@@ -12,6 +12,7 @@ const App = () => {
       <Router>
         <Navigation />
         <Switch>
+          <Route path="/books" component={BooksPage} />
           <Route path="/blocksgame" component={BlockGamepage} />
           <Route path="/cinema" component={Cinemapage} />
           <Route path="/login" component={LogInForm} />

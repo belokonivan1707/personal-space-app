@@ -6,11 +6,6 @@ interface InitialValues {
   password: string;
 }
 
-// interface Errors {
-//   email?: string;
-//   password?: string;
-// }
-
 const validateEmail = (value: string) => {
   let error;
   if (!value) {
@@ -41,9 +36,8 @@ const LogInForm = () => {
     <div>
       <Formik
         initialValues={initial}
-        onSubmit={values => {
+        onSubmit={() => {
           // same shape as initial values
-          console.log(values);
         }}
       >
         {({ errors, touched }) => (

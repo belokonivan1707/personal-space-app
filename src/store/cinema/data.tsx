@@ -2,7 +2,7 @@ import ComeAndSee from './images/Come-and-See.jpg';
 import Farewell from './images/Farewell.jpg';
 import RaisingCain from './images/Raising-Cain.png';
 
-export interface filmsType {
+export interface FilmsType {
   id: number;
   title: string;
   director: string;

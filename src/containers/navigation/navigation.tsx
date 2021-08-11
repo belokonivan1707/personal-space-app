@@ -25,6 +25,11 @@ const Navigation = () => {
               Blocks Game
             </button>
           </Link>
+          <Link to="books">
+            <button className={style.item} type="button">
+              Books
+            </button>
+          </Link>
         </div>
         {/* <div>log in</div> */}
       </div>

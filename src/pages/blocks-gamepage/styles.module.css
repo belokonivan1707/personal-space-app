@@ -1,12 +1,15 @@
 .container {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
-  /* justify-content: center; */
-  /* align-items: center;  */
   padding: 20px 0 0 0;
   background: brown;
   height: calc(100vh - 100px);
+}
+
+@media (max-width: 468px) {
+  .container {
+    height: calc(100vh - 70px);
+  }
 }
 
 .titlebox {
@@ -17,6 +20,17 @@
   font-size: 28px;
   line-height: 36px;
   text-align: center;
+}
+
+.score {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+.scorespan {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .difficultyTitle {

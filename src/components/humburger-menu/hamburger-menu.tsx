@@ -1,14 +1,13 @@
-import { useState, useImperativeHandle, useRef } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './styles.module.css';
 
 const HumburgerMenu = () => {
   const [state, setState] = useState<boolean>(false);
-  console.log(state);
 
   return (
     <>
-      <div className={style.button}>
+      <div className={style.buttonbox}>
         <button onClick={() => setState(prev => !prev)} type="button">
           open menu
         </button>
@@ -33,6 +32,13 @@ const HumburgerMenu = () => {
             <Link to="blocksgame">
               <button className={style.link} type="button" onClick={() => setState(prev => !prev)}>
                 Blocks Game
+              </button>
+            </Link>
+          </div>
+          <div className={style.item}>
+            <Link to="books">
+              <button className={style.link} type="button" onClick={() => setState(prev => !prev)}>
+                Books
               </button>
             </Link>
           </div>

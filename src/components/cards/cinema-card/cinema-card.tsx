@@ -1,20 +1,21 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { actionChangeFilmRating } from 'store/cinema/action';
-import { filmsType } from '../../../store/cinema/data';
 import RatingStar from '../../stars/stars';
+import { FilmsType } from '../../../store/cinema/data';
 import BlackStar from '../../../assets/stars/black-star.svg';
 import Star from '../../../assets/stars/star.svg';
 import BlackLike from '../../../assets/black-like/like.svg';
 import EmptyLike from '../../../assets/black-like/empty-like.svg';
 import style from './styles.module.css';
 
-const CinemaCart = ({ props }: any) => {
+export interface Props {
+  props: FilmsType;
+}
+
+const CinemaCard = ({ props }: Props) => {
   const dispatch = useDispatch();
-
-  const { id, title, director, image, year, rating, faivorite }: filmsType = props;
-
-  console.log('render CinemaCart');
+  const { id, title, director, image, year, rating, faivorite } = props;
 
   const array = [1, 2, 3, 4, 5];
 
@@ -23,7 +24,7 @@ const CinemaCart = ({ props }: any) => {
   };
 
   return (
-    <div className={style.cart}>
+    <div className={style.card}>
       <div
         className={style.image}
         style={{
@@ -53,4 +54,4 @@ const CinemaCart = ({ props }: any) => {
   );
 };
 
-export default React.memo(CinemaCart);
+export default React.memo(CinemaCard);
