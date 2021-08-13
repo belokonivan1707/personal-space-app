@@ -1,7 +1,7 @@
 .card {
   position: relative;
   width: 100%;
-  max-width: 450px;
+  max-width: 300px;
   margin: 0 10px 30px 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
@@ -50,6 +50,7 @@
 }
 
 .author {
+  height: 44px;
   margin-bottom: 15px;
   font-size: 22px;
   font-weight: 500;
@@ -62,7 +63,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .year {

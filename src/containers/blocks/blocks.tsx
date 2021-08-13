@@ -7,7 +7,7 @@ import {
   actionReloadGame,
 } from 'store/blocks-game/action';
 import { RootState } from 'store/root-reducer';
-import { RandomSequence } from 'pages/blocks-gamepage/block-gamepage';
+import { RandomSequence } from 'pages/blockspage/blockspage';
 import Block from '../../components/blocks-game/block/block';
 
 export interface LocalState {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { actionSetUserSequence } from 'store/blocks-game/action';
-import { RandomSequence } from 'pages/blocks-gamepage/block-gamepage';
+import { RandomSequence } from 'pages/blockspage/blockspage';
 import style from './styles.module.css';
 
 interface Props {

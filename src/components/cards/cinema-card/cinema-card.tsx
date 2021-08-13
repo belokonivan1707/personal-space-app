@@ -20,6 +20,7 @@ const CinemaCard = ({ props }: Props) => {
   const array = [1, 2, 3, 4, 5];
 
   const changeStar = (starId: number) => {
+    console.log(starId);
     dispatch(actionChangeFilmRating({ starId, id }));
   };
 

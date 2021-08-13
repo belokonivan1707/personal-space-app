@@ -1,4 +1,4 @@
-import { RandomSequence } from 'pages/blocks-gamepage/block-gamepage';
+import { RandomSequence } from 'pages/blockspage/blockspage';
 import {
   SET_RANDOM_SEQUENCE,
   CHANGE_COLOR_IN_SEQUENSE_TO_BLACK,

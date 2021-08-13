@@ -1,8 +1,48 @@
 .buttonbox {
   position: absolute;
+  position: relative;
   top: 50%;
-  transform: translate(15px, -50%);
-  z-index: 2;
+  transform: translate(0, -50%);
+  z-index: 10;
+  height: 100%;
+}
+
+.span {
+  width: 20px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  transition: opacity 0.5s;
+  transition: transform 0.5s;
+  border-radius: 15px;
+}
+
+.span:nth-of-type(2) {
+  top: calc(50% - 6px);
+  transition: all 0.5s;
+}
+
+.span:nth-of-type(3) {
+  top: calc(50% + 6px);
+  transition: all 0.5s;
+}
+
+.active:first-of-type {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.active:nth-last-of-type(2) {
+  transform: translate(-50%, -50%) rotate(45deg);
+  top: 50%;
+}
+
+.active:nth-of-type(3) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+  top: 50%;
 }
 
 .menuBackground {
@@ -11,6 +51,8 @@
   left: 0;
   width: 100%;
   height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
 }
 
 .menu {
@@ -23,7 +65,7 @@
   padding: 64px 15px 0 15px;
   background: rgb(0, 0, 0);
   box-sizing: border-box;
-  z-index: 1;
+  z-index: 3;
   animation-name: show-menu;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -50,9 +92,6 @@
   margin-bottom: 104px;
 }
 
-.item {
-}
-
 .item:not(:last-child) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
 }
@@ -68,10 +107,11 @@
   color: white;
 }
 
-.signin {
+.authbutton {
   width: 100%;
   outline: none;
   background: none;
+  margin-bottom: 10px;
   border: 1px solid rgba(255, 255, 255, 0.8);
   line-height: 48px;
   color: rgba(255, 255, 255, 0.6);

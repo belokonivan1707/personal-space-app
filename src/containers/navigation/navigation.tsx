@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from 'hooks/use-auth';
 import HumburgerMenu from '../../components/humburger-menu/hamburger-menu';
 import style from './styles.module.css';
 
 const Navigation = () => {
+  const auth = useAuth();
+
   return (
     <div>
       <div className={style.navigation}>
@@ -31,7 +34,28 @@ const Navigation = () => {
             </button>
           </Link>
         </div>
-        {/* <div>log in</div> */}
+        <div>
+          {auth.user ? (
+            <Link to="/signin">
+              <button className={style.item} type="button" onClick={() => auth.signout()}>
+                Sign Out
+              </button>
+            </Link>
+          ) : (
+            <div>
+              <Link to="/signup">
+                <button className={style.item} type="button">
+                  Sign Up
+                </button>
+              </Link>
+              <Link to="/signin">
+                <button className={style.item} type="button">
+                  Sign In
+                </button>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

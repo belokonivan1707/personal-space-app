@@ -20,7 +20,7 @@ export interface LocalState {
   score: number;
 }
 
-const BlockGamepage = () => {
+const Blockspage = () => {
   const buttonsArray = [
     { id: 3, title: 'Easy' },
     { id: 5, title: 'Medium' },
@@ -72,4 +72,4 @@ const BlockGamepage = () => {
   );
 };
 
-export default React.memo(BlockGamepage);
+export default React.memo(Blockspage);

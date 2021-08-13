@@ -2,6 +2,7 @@ import { FilmsType } from './data';
 import { ActionRatingPayloadType } from './action';
 
 export const changeFilmRating = (array: FilmsType[], payload: ActionRatingPayloadType) => {
+  console.log(array);
   const checkItem = array.find((item: FilmsType) => item.id === payload.id);
 
   if (checkItem) {

@@ -8,6 +8,7 @@ interface Props {
 }
 
 const RatingStar = ({ id, star, handleClick }: Props) => {
+  console.log(id);
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
   return <div className={style.star} onClick={() => handleClick(id)} style={{ backgroundImage: `url(${star})` }} />;
 };
