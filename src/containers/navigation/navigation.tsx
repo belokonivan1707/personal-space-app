@@ -7,54 +7,57 @@ const Navigation = () => {
   const auth = useAuth();
 
   return (
-    <div>
-      <div className={style.navigation}>
-        <div className={style.huburgerMenuBox}>
+    <div className={style.wrapper}>
+      <div className="container">
+        <div className={style.navigation}>
           <HumburgerMenu />
-        </div>
-        <div className={style.menu}>
-          <Link to="/">
-            <button className={style.item} type="button">
-              Home Page
-            </button>
-          </Link>
-          <Link to="cinema">
-            <button className={style.item} type="button">
-              Cinema
-            </button>
-          </Link>
-          <Link to="blocksgame">
-            <button className={style.item} type="button">
-              Blocks Game
-            </button>
-          </Link>
-          <Link to="books">
-            <button className={style.item} type="button">
-              Books
-            </button>
-          </Link>
-        </div>
-        <div>
-          {auth.user ? (
-            <Link to="/signin">
-              <button className={style.item} type="button" onClick={() => auth.signout()}>
-                Sign Out
-              </button>
-            </Link>
-          ) : (
-            <div>
-              <Link to="/signup">
+          <div className={style.menubox}>
+            <div className={style.menu}>
+              <Link to="/">
                 <button className={style.item} type="button">
-                  Sign Up
+                  Home Page
                 </button>
               </Link>
-              <Link to="/signin">
+              <Link to="cinema">
                 <button className={style.item} type="button">
-                  Sign In
+                  Cinema
+                </button>
+              </Link>
+              <Link to="books">
+                <button className={style.item} type="button">
+                  Books
+                </button>
+              </Link>
+              <Link to="blocksgame">
+                <button className={style.item} type="button">
+                  Blocks Game
                 </button>
               </Link>
             </div>
-          )}
+
+            <div>
+              {auth.user ? (
+                <Link to="/signin">
+                  <button className={style.item} type="button" onClick={() => auth.signout()}>
+                    Sign Out
+                  </button>
+                </Link>
+              ) : (
+                <div>
+                  <Link to="/signup">
+                    <button className={style.item} type="button">
+                      Sign Up
+                    </button>
+                  </Link>
+                  <Link to="/signin">
+                    <button className={style.item} type="button">
+                      Sign In
+                    </button>
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

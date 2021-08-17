@@ -1,5 +1,12 @@
 @import './fonts/poppins.css';
 
+.container {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', 'Arial', 'Helvetica', sans-serif;
   margin: 0;
@@ -30,10 +37,4 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: 'color 9999s ease-out, background-color 9999s ease-out';
   transition-delay: 9999s;
-}
-
-button {
-  outline: none;
-  border: 0;
-  border: none;
 }

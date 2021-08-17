@@ -7,6 +7,7 @@ import { useAuth } from '../../hooks/use-auth';
 
 const SignUpForm = () => {
   const auth = useAuth();
+
   const history = useHistory();
   const [emailError, setEmailError] = useState<Errors>({ status: '', messadge: '', border: '' });
   const [passwordError, setPasswordError] = useState<Errors>({ status: '', messadge: '', border: '' });

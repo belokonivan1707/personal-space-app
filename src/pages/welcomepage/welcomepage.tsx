@@ -1,15 +1,13 @@
 import { useLocation } from 'react-router-dom';
 
-export interface Location {
-  state: {
-    email: string;
-  };
+export interface LocationSatate {
+  email: string;
 }
 
 const Welcomepage = () => {
-  const location = useLocation();
+  const location = useLocation<LocationSatate>();
 
-  const { email }: any = location.state;
+  const { email } = location.state;
 
   return (
     <div>

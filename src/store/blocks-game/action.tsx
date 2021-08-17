@@ -8,7 +8,7 @@ import {
   RELOAD_GAME,
 } from './const';
 
-export interface ActionSetRandomSequence {
+export interface SetRandomSequenceType {
   array: RandomSequence[];
   timeBeforeRemovingColor: number;
   blocksQuantity: number;
@@ -18,7 +18,7 @@ export interface ActionSetUserSequence {
   payload: number;
 }
 
-export const actionSetRandomSequence = (payload: ActionSetRandomSequence) => {
+export const actionSetRandomSequence = (payload: SetRandomSequenceType) => {
   return {
     type: SET_RANDOM_SEQUENCE,
     payload,

@@ -4,14 +4,14 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 firebase.initializeApp({
-  apiKey: 'AIzaSyBP0HRebomd9AKeyjc-nAfG-t7sDGEqots',
-  authDomain: 'personal-space-9112a.firebaseapp.com',
-  databaseURL: 'https://personal-space-9112a-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'personal-space-9112a',
-  storageBucket: 'personal-space-9112a.appspot.com',
-  messagingSenderId: '96800415640',
-  appId: '1:96800415640:web:64c89128320e2b80bdd5ed',
-  measurementId: 'G-Y8ED4KN596',
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 });
 
 const authContext = createContext({} as any);
@@ -29,7 +29,7 @@ export const useAuth = () => {
 };
 
 function useProvideAuth() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<any>(() => localStorage.getItem('personal-space/auth'));
 
   const signin = (email: string, password: string) => {
     return firebase
@@ -100,7 +100,9 @@ function useProvideAuth() {
     const unsubscribe = firebase.auth().onAuthStateChanged((user: unknown) => {
       if (user) {
         setUser(user);
+        localStorage.setItem('personal-space/auth', 'true');
       } else {
+        localStorage.removeItem('auth');
         setUser(false);
       }
     });

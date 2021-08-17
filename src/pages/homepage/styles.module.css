@@ -1,3 +1,3 @@
-.container {
-  background-color: brown;
+.homepage {
+  height: calc(100vh - 80px);
 }

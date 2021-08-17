@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-// import styles from './styles.module.css';
+import style from './styles.module.css';
 
 const Homepage = () => {
   return (
-    <div className="container">
+    <div className={style.homepage}>
       <h3>homepage</h3>
       <div>
         <Link to="/">

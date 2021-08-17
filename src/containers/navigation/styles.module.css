@@ -1,28 +1,40 @@
+.wrapper {
+  background: black;
+}
+
 .navigation {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  padding: 0 15px 0 0;
-  background: black;
   position: relative;
+  height: 60px;
+  padding: 0 5px;
   box-sizing: border-box;
+}
+
+.menubox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .item {
   width: fit-content;
-  margin-left: 15px;
-  padding: 0 15px;
+  padding: 0 10px;
   background: black;
-  line-height: 56px;
-  color: rgba(255, 255, 255, 0.8);
   box-shadow: none;
   box-sizing: border-box;
+  border: none !important;
+  outline: none !important;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0px;
+  line-height: 56px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .item:active {
   outline: none !important;
-
   border: 1px solid white;
   color: white;
   box-shadow: none;
@@ -43,26 +55,12 @@
   color: white;
 }
 
-.huburgerMenuBox {
-  display: none;
-}
-
 @media (max-width: 650px) {
-  .navigation {
-    height: 50px;
-  }
-
-  .huburgerMenuBox {
-    display: block;
-    width: 40px;
-    height: 100%;
+  .menubox {
+    justify-content: flex-end;
   }
 
   .menu {
     display: none;
-  }
-
-  .item {
-    line-height: 48px;
   }
 }

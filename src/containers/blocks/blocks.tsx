@@ -9,6 +9,7 @@ import {
 import { RootState } from 'store/root-reducer';
 import { RandomSequence } from 'pages/blockspage/blockspage';
 import Block from '../../components/blocks-game/block/block';
+import style from './styles.module.css';
 
 export interface LocalState {
   randomSequence: RandomSequence[];
@@ -55,17 +56,28 @@ const Blocks = () => {
 
   if (win) {
     return (
-      <div>
-        you are win
-        <button type="button" onClick={() => dispatch(actionReloadGame())}>
-          try again
+      <div className={style.box}>
+        <div className={style.textbox}>
+          <span className={style.text}> You are Win</span>
+        </div>
+        <button className={style.button} type="button" onClick={() => dispatch(actionReloadGame())}>
+          New Game
         </button>
       </div>
     );
   }
 
   if (win === false) {
-    return <div>you are lose</div>;
+    return (
+      <div className={style.box}>
+        <div className={style.textbox}>
+          <span className={style.text}>You are Lose</span>
+        </div>
+        <button className={style.button} type="button" onClick={() => dispatch(actionReloadGame())}>
+          Try Again
+        </button>
+      </div>
+    );
   }
 
   return (

@@ -1,8 +1,26 @@
 import { FilmsType } from './data';
-import { ActionRatingPayloadType } from './action';
+import { RatingPayloadType } from './action';
 
-export const changeFilmRating = (array: FilmsType[], payload: ActionRatingPayloadType) => {
-  console.log(array);
+export const changeFavoriteProperty = (array: FilmsType[], payload: number) => {
+  const checkItem = array.find(el => el.id === payload);
+
+  if (checkItem) {
+    array.map((el: FilmsType) => {
+      if (el.id === payload) {
+        const item =
+          // eslint-disable-next-line no-param-reassign
+          el.favorite === true ? { ...el, favorite: el.favorite = false } : { ...el, favorite: el.favorite = true };
+        return item;
+      }
+
+      return el;
+    });
+  }
+
+  return [...array];
+};
+
+export const changeFilmRating = (array: FilmsType[], payload: RatingPayloadType) => {
   const checkItem = array.find((item: FilmsType) => item.id === payload.id);
 
   if (checkItem) {
@@ -15,8 +33,8 @@ export const changeFilmRating = (array: FilmsType[], payload: ActionRatingPayloa
 };
 
 export const sortByProperty = (cinema: FilmsType[], sortingProperty: string) => {
-  if (sortingProperty === 'faivorite') {
-    const sorted = cinema.filter(el => el.faivorite === true);
+  if (sortingProperty === 'favorite') {
+    const sorted = cinema.filter(el => el.favorite === true);
     return sorted;
   }
 

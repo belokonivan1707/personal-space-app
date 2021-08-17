@@ -13,23 +13,23 @@ const Cinemapage = () => {
   const dispatch = useDispatch();
   const cinemaToShow: FilmsType[] = useSelector<CinemaStore, FilmsType[]>(store => store.cinemaStore.cinemaToShow);
 
-  const [filterSettings, setFilterSetting] = useState('faivorite');
+  const [filterSettings, setFilterSetting] = useState('all');
 
   useEffect(() => {
     dispatch(actionSortByProperty(filterSettings));
   }, [filterSettings]);
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.sortmenu}>
+    <div className="container">
+      <div className={style.sortingmenu}>
         <button className={style.button} onClick={() => setFilterSetting('all')} type="button">
           All
         </button>
-        <button className={style.button} onClick={() => setFilterSetting('faivorite')} type="button">
-          Faivorite
+        <button className={style.button} onClick={() => setFilterSetting('favorite')} type="button">
+          Top Rated
         </button>
       </div>
-      <div className={style.container}>
+      <div className={style.cardsbox}>
         {cinemaToShow.map((film: FilmsType) => {
           return <CinemaCard key={film.id} props={film} />;
         })}

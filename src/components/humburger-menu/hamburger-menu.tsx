@@ -9,17 +9,20 @@ const HumburgerMenu = () => {
 
   return (
     <>
-      <div
-        role="button"
-        tabIndex={0}
-        className={style.buttonbox}
-        onClick={() => setHamburger(prev => !prev)}
-        onKeyDown={() => setHamburger(prev => !prev)}
-      >
-        <span className={`${style.span} ${hamburger ? style.active : ''}`}> </span>
-        <span className={`${style.span} ${hamburger ? style.active : ''}`}> </span>
-        <span className={`${style.span} ${hamburger ? style.active : ''}`}> </span>
+      <div className={style.humburgerbox}>
+        <div
+          role="button"
+          tabIndex={0}
+          className={style.humburgerbutton}
+          onClick={() => setHamburger(prev => !prev)}
+          onKeyDown={() => setHamburger(prev => !prev)}
+        >
+          <span className={`${style.span} ${hamburger ? style.active : ''}`}> </span>
+          <span className={`${style.span} ${hamburger ? style.active : ''}`}> </span>
+          <span className={`${style.span} ${hamburger ? style.active : ''}`}> </span>
+        </div>
       </div>
+
       <div className={`${hamburger ? `${style.menu}` : `${style.close}`}`}>
         <div className={style.itemlist}>
           <div className={style.item}>
@@ -37,16 +40,16 @@ const HumburgerMenu = () => {
             </Link>
           </div>
           <div className={style.item}>
-            <Link to="blocksgame">
+            <Link to="books">
               <button className={style.link} type="button" onClick={() => setHamburger(prev => !prev)}>
-                Blocks Game
+                Books
               </button>
             </Link>
           </div>
           <div className={style.item}>
-            <Link to="books">
+            <Link to="blocksgame">
               <button className={style.link} type="button" onClick={() => setHamburger(prev => !prev)}>
-                Books
+                Blocks Game
               </button>
             </Link>
           </div>

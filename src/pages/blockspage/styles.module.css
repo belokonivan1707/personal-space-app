@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 20px 0 0 0;
   background: brown;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 80px);
 }
 
 @media (max-width: 468px) {

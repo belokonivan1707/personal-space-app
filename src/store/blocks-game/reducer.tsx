@@ -10,6 +10,15 @@ import {
 } from './const';
 import { checkUserSequence } from './utils';
 import { BlocksGameState } from './types';
+import { SetRandomSequenceType } from './action';
+
+export type ActionsType =
+  | { type: 'SET_RANDOM_SEQUENCE'; payload: SetRandomSequenceType }
+  | { type: 'CHANGE_COLOR_IN_SEQUENSE_TO_BLACK' }
+  | { type: 'CHANGE_COLOR_IN_SEQUENSE_TO_DARKGRAY' }
+  | { type: 'SET_USER_SEQUENCE'; payload: number }
+  | { type: 'CHECK_USER_SEQUENCE' }
+  | { type: 'RELOAD_GAME' };
 
 const INNITTIAL_STATE = {
   score: 0,
@@ -23,7 +32,7 @@ const INNITTIAL_STATE = {
   userStep: 1,
 };
 
-const blocksGameReducer: Reducer<BlocksGameState, any> = (state = INNITTIAL_STATE, action) => {
+const blocksGameReducer: Reducer<BlocksGameState, ActionsType> = (state = INNITTIAL_STATE, action) => {
   switch (action.type) {
     case SET_RANDOM_SEQUENCE:
       return {

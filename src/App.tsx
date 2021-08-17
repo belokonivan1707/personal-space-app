@@ -13,27 +13,25 @@ import Navigation from './containers/navigation/navigation';
 const App = () => {
   return (
     <ProvideAuth>
-      <div className="container">
-        <Router>
-          <Navigation />
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/welcome" component={Welcomepage} />
-            <Route path="/signin" component={SignInForm} />
-            <Route path="/signup" component={SignUpForm} />
+      <Router>
+        <Navigation />
+        <Switch>
+          <Route path="/welcome" component={Welcomepage} />
+          <Route exact path="/" component={Homepage} />
+          <Route path="/signin" component={SignInForm} />
+          <Route path="/signup" component={SignUpForm} />
 
-            <PrivateRoute path="/blocksgame">
-              <Blockspage />
-            </PrivateRoute>
-            <PrivateRoute path="/cinema">
-              <Cinemapage />
-            </PrivateRoute>
-            <PrivateRoute path="/books">
-              <BooksPage />
-            </PrivateRoute>
-          </Switch>
-        </Router>
-      </div>
+          <PrivateRoute path="/blocksgame">
+            <Blockspage />
+          </PrivateRoute>
+          <PrivateRoute path="/cinema">
+            <Cinemapage />
+          </PrivateRoute>
+          <PrivateRoute path="/books">
+            <BooksPage />
+          </PrivateRoute>
+        </Switch>
+      </Router>
     </ProvideAuth>
   );
 };
