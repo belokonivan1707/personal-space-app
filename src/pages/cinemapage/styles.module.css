@@ -34,11 +34,9 @@
 
 .button:focus {
   background: #000000b3;
-  /* background: #00000099; */
   color: rgba(255, 255, 255);
 }
 .button:hover {
   background: #000000b3;
-  /* background: #00000099; */
   color: rgba(255, 255, 255);
 }

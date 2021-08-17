@@ -1,7 +1,7 @@
 import { Reducer } from 'react';
 import { CHANGE_FILM_RATING, SORT_BY_PROPERTY, CHANGE_FAVORITE_PROPERTY } from './const';
 import { RatingPayloadType } from './action';
-import { films, FilmsType } from './data';
+import { films } from './data';
 import { changeFilmRating, sortByProperty, changeFavoriteProperty } from './utils';
 import { CinemaState } from './types';
 
@@ -12,7 +12,7 @@ export type ActionsType =
 
 const INNITTIAL_STATE = {
   cinema: films,
-  cinemaToShow: [] as FilmsType[],
+  cinemaCopy: films,
 };
 
 const cinemaReducer: Reducer<CinemaState, ActionsType> = (state = INNITTIAL_STATE, action) => {
@@ -20,19 +20,19 @@ const cinemaReducer: Reducer<CinemaState, ActionsType> = (state = INNITTIAL_STAT
     case CHANGE_FILM_RATING:
       return {
         ...state,
-        cinemaToShow: changeFilmRating(state.cinemaToShow, action.payload),
+        cinema: changeFilmRating(state.cinema, action.payload),
       };
 
     case SORT_BY_PROPERTY:
       return {
         ...state,
-        cinemaToShow: sortByProperty(state.cinema, action.payload),
+        cinema: sortByProperty(state.cinemaCopy, action.payload),
       };
 
     case CHANGE_FAVORITE_PROPERTY:
       return {
         ...state,
-        cinemaToShow: changeFavoriteProperty(state.cinemaToShow, action.payload),
+        cinema: changeFavoriteProperty(state.cinema, action.payload),
       };
 
     default:

@@ -81,7 +81,7 @@ export const writersData = [
     books: [
       {
         id: 1,
-        title: 'Три товарища',
+        title: '«Три товарища»',
         genre: 'роман',
         date: '1936',
         quotes: [

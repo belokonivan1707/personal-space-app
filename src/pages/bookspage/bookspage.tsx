@@ -14,7 +14,7 @@ const WritersPage = () => {
     <div className={style.container}>
       <div>
         {writersToShow.map((el: WritersType) => (
-          <WriterCard key={el.id} item={el} />
+          <WriterCard key={el.id} props={el} />
         ))}
       </div>
     </div>

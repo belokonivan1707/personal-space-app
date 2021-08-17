@@ -5,13 +5,13 @@ import { FilmsType } from '../../store/cinema/data';
 import CinemaCard from '../../components/cards/cinema-card/cinema-card';
 import style from './styles.module.css';
 
-interface CinemaStore {
-  cinemaStore: { cinemaToShow: FilmsType[] };
+export interface CinemaStore {
+  cinemaStore: { cinema: FilmsType[] };
 }
 
 const Cinemapage = () => {
   const dispatch = useDispatch();
-  const cinemaToShow: FilmsType[] = useSelector<CinemaStore, FilmsType[]>(store => store.cinemaStore.cinemaToShow);
+  const cinema: FilmsType[] = useSelector<CinemaStore, FilmsType[]>(store => store.cinemaStore.cinema);
 
   const [filterSettings, setFilterSetting] = useState('all');
 
@@ -30,7 +30,7 @@ const Cinemapage = () => {
         </button>
       </div>
       <div className={style.cardsbox}>
-        {cinemaToShow.map((film: FilmsType) => {
+        {cinema.map((film: FilmsType) => {
           return <CinemaCard key={film.id} props={film} />;
         })}
       </div>

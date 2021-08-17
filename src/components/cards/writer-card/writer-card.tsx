@@ -3,11 +3,11 @@ import { WritersType, Books, Quotes } from '../../../store/writers/data';
 import style from './styles.module.css';
 
 export interface Props {
-  item: WritersType;
+  props: WritersType;
 }
 
-const WriterCard = ({ item }: Props) => {
-  const { writer, photo, born, died, books } = item;
+const WriterCard = ({ props }: Props) => {
+  const { writer, photo, born, died, books } = props;
   return (
     <div className={style.card}>
       <div className={style.writer}>
