@@ -28,9 +28,10 @@ const WriterCard = ({ props }: Props) => {
               <h4 className={style.booktitle}>{el.title}</h4>
               <p className={style.bookdate}>{el.date}</p>
             </div>
-            {el.quotes.map((quote: Quotes) => (
-              <DropDownQuote key={quote.id} quote={quote} />
-            ))}
+            <DropDownQuote quote={books[0].quotes[0]} />
+            {el.quotes.map((quote: Quotes, index) => {
+              return index === 1 ? null : <DropDownQuote key={quote.id} quote={quote} />;
+            })}
           </div>
         ))}
       </div>

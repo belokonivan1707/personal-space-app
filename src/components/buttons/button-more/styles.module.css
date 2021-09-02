@@ -1,0 +1,25 @@
+.button {
+  min-width: 120px;
+  width: auto;
+  background-color: rgb(248, 248, 248);
+  border: none;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+  color: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+}
+
+.button:hover {
+  background-color: white;
+  box-shadow: -4px -2px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.button:active {
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
+  color: black;
+}

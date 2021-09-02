@@ -1,41 +1,30 @@
 import { Link } from 'react-router-dom';
-import { useAuth } from 'hooks/use-auth';
+// import { useAuth } from 'hooks/use-auth';
+import { TOP_MENU } from 'constant/consts';
 import HumburgerMenu from '../../components/humburger-menu/hamburger-menu';
 import style from './styles.module.css';
 
 const Navigation = () => {
-  const auth = useAuth();
+  // const auth = useAuth();
 
   return (
     <div className={style.wrapper}>
-      <div className="container">
-        <div className={style.navigation}>
-          <HumburgerMenu />
-          <div className={style.menubox}>
-            <div className={style.menu}>
-              <Link to="/">
-                <button className={style.item} type="button">
-                  Home Page
-                </button>
-              </Link>
-              <Link to="cinema">
-                <button className={style.item} type="button">
-                  Cinema
-                </button>
-              </Link>
-              <Link to="books">
-                <button className={style.item} type="button">
-                  Books
-                </button>
-              </Link>
-              <Link to="blocksgame">
-                <button className={style.item} type="button">
-                  Blocks Game
-                </button>
-              </Link>
-            </div>
+      <div className={style.container}>
+        <HumburgerMenu />
+        <div className={style.menubox}>
+          <div className={style.menu}>
+            {TOP_MENU.map(el => {
+              return (
+                <Link to={el.link} key={el.id}>
+                  <button className={style.item} type="button">
+                    {el.name}
+                  </button>
+                </Link>
+              );
+            })}
+          </div>
 
-            <div>
+          {/* <div>
               {auth.user ? (
                 <Link to="/signin">
                   <button className={style.item} type="button" onClick={() => auth.signout()}>
@@ -56,8 +45,7 @@ const Navigation = () => {
                   </Link>
                 </div>
               )}
-            </div>
-          </div>
+            </div> */}
         </div>
       </div>
     </div>

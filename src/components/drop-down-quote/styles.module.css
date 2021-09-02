@@ -7,16 +7,6 @@
   box-sizing: border-box;
 }
 
-.wrap:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
-.wrap:active {
-  background: rgba(0, 0, 0, 0.05);
-}
-.wrap:focus {
-  background: rgba(0, 0, 0, 0.05);
-}
-
 .titlebox {
   display: flex;
   justify-content: space-between;
@@ -45,7 +35,7 @@
   margin-right: 10px;
 }
 
-.quotebox {
+.dropDown {
   max-height: 0;
   overflow: hidden;
   transition: max-height var(--transition-duration, 0.3s);
@@ -55,14 +45,24 @@
   padding: 5px 25px;
   font-size: 16px;
   font-style: italic;
-  line-height: 18px;
+  line-height: 24px;
   letter-spacing: -0.2px;
   box-sizing: border-box;
 }
 
-.dropdown {
+.wrap:focus .dropDown {
   max-height: 550px;
   visibility: visible;
   transition: max-height var(--transition-duration, 0.6s);
   transition-timing-function: var(--timing-function, ease);
 }
+
+/* .wrap:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+.wrap:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+.wrap:focus {
+  background: rgba(0, 0, 0, 0.05);
+} */

@@ -1,0 +1,22 @@
+.line {
+  display: flex;
+  align-items: center;
+  height: 38px;
+}
+
+.item {
+  width: 200px;
+}
+
+/* .item:not(:first-child) {
+  margin-left: 10px;
+} */
+
+.line:hover {
+  background: rgba(224, 224, 224, 0.8);
+}
+
+.ratingbox {
+  display: flex;
+  align-items: center;
+}

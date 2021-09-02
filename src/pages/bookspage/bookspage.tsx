@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import Profile from 'containers/profile/profile';
 import WriterCard from '../../components/cards/writer-card/writer-card';
 import { WritersType } from '../../store/writers/data';
 import style from './styles.module.css';
@@ -13,6 +14,9 @@ const WritersPage = () => {
   return (
     <div className={style.container}>
       <div>
+        <Profile />
+      </div>
+      <div className={style.writersCardbox}>
         {writersToShow.map((el: WritersType) => (
           <WriterCard key={el.id} props={el} />
         ))}

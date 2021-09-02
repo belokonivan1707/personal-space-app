@@ -1,5 +1,24 @@
+.container {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* @media (max-width: 1180px) {
+  .container {
+    max-width: 890px;
+  }
+}
+
+@media (max-width: 890px) {
+  .container {
+    max-width: 590px;
+  }
+} */
+
 .homepage {
-  padding-top: 60px;
+  padding-top: 30px;
 }
 
 .titlebox {
@@ -27,9 +46,9 @@
 
 .contentbox {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: space-around;
   margin-bottom: 40px;
 }
 

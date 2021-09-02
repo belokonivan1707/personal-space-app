@@ -1,0 +1,12 @@
+.photopage {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.photosContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}

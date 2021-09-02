@@ -2,10 +2,9 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: calc(100% - 30px);
   margin: 0 auto;
   margin-bottom: 20px;
-  padding: 25px 25px 50px 25px;
+  padding: 15px 15px 25px 15px;
   box-shadow: 1px 0px 10px 1px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
 }
@@ -43,12 +42,12 @@
 }
 
 .date {
+  margin-bottom: 5px;
   font-size: 16px;
   font-weight: 400;
   font-style: italic;
   line-height: 16px;
   letter-spacing: 0.2px;
-  margin-bottom: 5px;
 }
 
 .books {
@@ -131,4 +130,3 @@
     padding-bottom: 0;
   }
 }
-

@@ -1,4 +1,4 @@
-import { FilmsType } from './data';
+import { FilmsType } from './data/data';
 import { RatingPayloadType } from './action';
 
 export const changeFavoriteProperty = (array: FilmsType[], payload: number) => {

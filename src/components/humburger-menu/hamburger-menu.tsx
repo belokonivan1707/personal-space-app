@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from 'hooks/use-auth';
+import { TOP_MENU } from 'constant/consts';
 import style from './styles.module.css';
+// import { useAuth } from 'hooks/use-auth';
 
 const HumburgerMenu = () => {
-  const auth = useAuth();
+  // const auth = useAuth();
   const [hamburger, setHamburger] = useState<boolean>(false);
+  useEffect(() => {
+    if (hamburger) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    if (!hamburger) {
+      document.body.style.overflow = 'scroll';
+    }
+  }, [hamburger]);
 
   return (
     <>
@@ -25,56 +35,17 @@ const HumburgerMenu = () => {
 
       <div className={`${hamburger ? `${style.menu}` : `${style.close}`}`}>
         <div className={style.itemlist}>
-          <div className={style.item}>
-            <Link to="/">
-              <button className={style.link} type="button" onClick={() => setHamburger(prev => !prev)}>
-                Home Page
-              </button>
-            </Link>
-          </div>
-          <div className={style.item}>
-            <Link to="cinema">
-              <button className={style.link} type="button" onClick={() => setHamburger(prev => !prev)}>
-                Cinema
-              </button>
-            </Link>
-          </div>
-          <div className={style.item}>
-            <Link to="books">
-              <button className={style.link} type="button" onClick={() => setHamburger(prev => !prev)}>
-                Books
-              </button>
-            </Link>
-          </div>
-          <div className={style.item}>
-            <Link to="blocksgame">
-              <button className={style.link} type="button" onClick={() => setHamburger(prev => !prev)}>
-                Blocks Game
-              </button>
-            </Link>
-          </div>
-        </div>
-        <div>
-          {auth.user ? (
-            <Link to="/signin">
-              <button className={style.authbutton} type="button" onClick={() => auth.signout()}>
-                Sign Out
-              </button>
-            </Link>
-          ) : (
-            <div>
-              <Link to="/signup">
-                <button className={style.authbutton} type="button" onClick={() => setHamburger(prev => !prev)}>
-                  Sign Up
-                </button>
-              </Link>
-              <Link to="/signin">
-                <button className={style.authbutton} type="button" onClick={() => setHamburger(prev => !prev)}>
-                  Sign In
-                </button>
-              </Link>
-            </div>
-          )}
+          {TOP_MENU.map(el => {
+            return (
+              <div className={style.item} key={el.id}>
+                <Link to={el.link}>
+                  <button className={style.link} type="button" onClick={() => setHamburger(prev => !prev)}>
+                    {el.name}
+                  </button>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
       {hamburger ? (
@@ -91,3 +62,26 @@ const HumburgerMenu = () => {
 };
 
 export default HumburgerMenu;
+
+/*  <div>
+  {auth.user ? (
+    <Link to="/signin">
+      <button className={style.authbutton} type="button" onClick={() => auth.signout()}>
+        Sign Out
+      </button>
+    </Link>
+  ) : (
+    <div>
+      <Link to="/signup">
+        <button className={style.authbutton} type="button" onClick={() => setHamburger(prev => !prev)}>
+          Sign Up
+        </button>
+      </Link>
+      <Link to="/signin">
+        <button className={style.authbutton} type="button" onClick={() => setHamburger(prev => !prev)}>
+          Sign In
+        </button>
+      </Link>
+    </div>
+  )}
+</div> */

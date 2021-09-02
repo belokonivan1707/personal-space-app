@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { actionChangeFilmRating, actionChangeFavoriteProperty } from 'store/cinema/action';
 import RatingStar from '../../stars/stars';
-import { FilmsType } from '../../../store/cinema/data';
+import { FilmsType } from '../../../store/cinema/data/data';
 import BlackStar from '../../../assets/stars/black-star.svg';
 import Star from '../../../assets/stars/star.svg';
 import BlackLike from '../../../assets/black-like/like.svg';

@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import CinemaCard from 'components/cards/cinema-card/cinema-card';
 import WriterCard from '../../components/cards/writer-card/writer-card';
-import style from './styles.module.css';
 import { WritersType } from '../../store/writers/data';
-import { FilmsType } from '../../store/cinema/data';
+import { FilmsType } from '../../store/cinema/data/data';
+import style from './styles.module.css';
 
 interface CinemaStore {
   cinemaStore: { cinema: FilmsType[] };
@@ -17,8 +18,32 @@ const Homepage = () => {
   const cinema: FilmsType[] = useSelector<CinemaStore, FilmsType[]>(store => store.cinemaStore.cinema);
   const writersToShow = useSelector<WritersStore, WritersType[]>(state => state.writersStore.writers);
 
+  const [width, setWidth] = useState(window.innerWidth);
+  const [countCinemaCards, setCountCinemaCards] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+
+    if (width < 1180) {
+      setCountCinemaCards(3);
+    }
+
+    if (width >= 1180) {
+      setCountCinemaCards(4);
+    }
+
+    if (width <= 885) {
+      setCountCinemaCards(4);
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
+
   return (
-    <div className="container">
+    <div className={style.container}>
       <div className={style.homepage}>
         <div className={style.titlebox}>
           <h1 className={style.title}>It is time for a new kind of information about you for the internet.</h1>
@@ -27,7 +52,7 @@ const Homepage = () => {
         <div className={style.presentation}>
           <h2 className={style.subtitle}>Share your taste in cinema</h2>
           <div className={style.contentbox}>
-            {cinema.slice(0, 4).map((item: FilmsType) => (
+            {cinema.slice(0, countCinemaCards).map((item: FilmsType) => (
               <CinemaCard key={item.id} props={item} />
             ))}
           </div>
@@ -37,7 +62,7 @@ const Homepage = () => {
               <WriterCard key={item.id} props={item} />
             ))}
           </div>
-          <h2 className={style.subtitle}>Music</h2>
+          <h2 className={style.subtitle}>Share your photos</h2>
           <h2 className={style.subtitle}>Art</h2>
         </div>
       </div>

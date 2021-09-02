@@ -1,7 +1,7 @@
 import { Reducer } from 'react';
 import { CHANGE_FILM_RATING, SORT_BY_PROPERTY, CHANGE_FAVORITE_PROPERTY } from './const';
 import { RatingPayloadType } from './action';
-import { films } from './data';
+import { films } from './data/data';
 import { changeFilmRating, sortByProperty, changeFavoriteProperty } from './utils';
 import { CinemaState } from './types';
 
