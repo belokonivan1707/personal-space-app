@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from 'components/private-route/private-route';
 import BooksPage from 'pages/bookspage/bookspage';
 import SignInForm from 'containers/sign-in-form/sign-in-form';
-import { ProvideAuth } from './hooks/use-auth';
+import QuestionPage from 'pages/questionpage/questionpage';
 import Homepage from './pages/homepage/homepage';
 import Blockspage from './pages/blockspage/blockspage';
 import Cinemapage from './pages/cinemapage/cinemapage';
@@ -10,6 +10,7 @@ import Photopage from './pages/photopage/photopage';
 import Welcomepage from './pages/welcomepage/welcomepage';
 import SignUpForm from './containers/sign-up-form/sign-up-from';
 import Navigation from './containers/navigation/navigation';
+import { ProvideAuth } from './hooks/use-auth';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/welcome" component={Welcomepage} />
           <Route path="/signin" component={SignInForm} />
           <Route path="/signup" component={SignUpForm} />
+          <Route path="/questions" component={QuestionPage} />
 
           <PrivateRoute path="/blocksgame">
             <Blockspage />

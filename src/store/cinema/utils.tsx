@@ -7,9 +7,7 @@ export const changeFavoriteProperty = (array: FilmsType[], payload: number) => {
   if (checkItem) {
     array.map((el: FilmsType) => {
       if (el.id === payload) {
-        const item =
-          // eslint-disable-next-line no-param-reassign
-          el.favorite === true ? { ...el, favorite: el.favorite = false } : { ...el, favorite: el.favorite = true };
+        const item = el.favorite === true ? { ...el, favorite: false } : { ...el, favorite: true };
         return item;
       }
 

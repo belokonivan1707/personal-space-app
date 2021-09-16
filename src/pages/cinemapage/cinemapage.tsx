@@ -12,6 +12,7 @@ import style from './styles.module.css';
 export interface CinemaStore {
   cinemaStore: { cinema: FilmsType[] };
 }
+
 export interface UserStore {
   userStore: { user: UserType };
 }
