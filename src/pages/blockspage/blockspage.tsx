@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actionSetRandomSequence } from 'store/blocks-game/action';
 import Button from 'components/buttons/button/button';
 import { BlocksGameState } from 'store/blocks-game/types';
+import Cube from 'components/blocks-game/cube/cube';
 import Blocks from '../../containers/blocks/blocks';
 import { ButtonsArray } from './types';
 import { RootState } from '../../store/root-reducer';
@@ -52,6 +53,7 @@ const Blockspage = () => {
           {score}
         </p>
       </div>
+      <Cube props={buttonsArray} />
       <div className={style.difficultySection}>
         {difficult ? (
           <div className={style.gameSection}>

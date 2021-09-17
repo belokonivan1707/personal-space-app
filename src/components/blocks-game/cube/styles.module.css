@@ -1,0 +1,70 @@
+.cube_section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 0;
+}
+
+.scene {
+  width: 200px;
+  height: 200px;
+  perspective: 600px;
+  margin-bottom: 50px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  color: white;
+}
+
+.cube div {
+  position: absolute;
+  width: 200px;
+
+  height: 200px;
+  opacity: 0.8;
+}
+
+.cube_front {
+  background: black;
+  transform: rotateY(0deg) translateZ(100px);
+}
+.cube_back {
+  transform: rotateY(90deg) translateZ(100px);
+  background: gray;
+}
+.cube_right {
+  background: white;
+  transform: rotateY(180deg) translateZ(100px);
+}
+.cube_left {
+  background: rgb(122, 117, 117);
+  transform: rotateY(-90deg) translateZ(100px);
+}
+.cube_top {
+  background: rgb(218, 216, 216);
+  transform: rotateX(90deg) translateZ(100px);
+}
+.cube_bottom {
+  background: rgb(49, 43, 43);
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+.difficultiesSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.inputbox {
+  display: flex;
+}
+
+/* transform: translateZ(-100px) rotateY(   0deg); */

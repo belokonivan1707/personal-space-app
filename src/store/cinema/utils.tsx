@@ -5,14 +5,16 @@ export const changeFavoriteProperty = (array: FilmsType[], payload: number) => {
   const checkItem = array.find(el => el.id === payload);
 
   if (checkItem) {
-    array.map((el: FilmsType) => {
+    const newArray = array.map((el: FilmsType) => {
       if (el.id === payload) {
         const item = el.favorite === true ? { ...el, favorite: false } : { ...el, favorite: true };
-        return item;
+        return { ...item };
       }
 
       return el;
     });
+
+    return newArray;
   }
 
   return [...array];

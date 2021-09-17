@@ -50,7 +50,7 @@ const Homepage = () => {
         </div>
 
         <div className={style.presentation}>
-          <h2 className={style.subtitle}>Share your taste in cinema</h2>
+          <h2 className={style.subtitle}>Share your favorit movies</h2>
           <div className={style.contentbox}>
             {cinema.slice(0, countCinemaCards).map((item: FilmsType) => (
               <CinemaCard key={item.id} props={item} />
