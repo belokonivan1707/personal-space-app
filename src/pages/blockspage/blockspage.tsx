@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionSetRandomSequence } from 'store/blocks-game/action';
 import Button from 'components/buttons/button/button';
@@ -21,27 +21,45 @@ export interface LocalState {
   score: number;
 }
 
+const initialState = [
+  { id: 3, title: 'Easy', chosen: false },
+  { id: 5, title: 'Medium', chosen: false },
+  { id: 7, title: 'Hard', chosen: false },
+];
+
 const Blockspage = () => {
-  const buttonsArray = [
-    { id: 3, title: 'Easy' },
-    { id: 5, title: 'Medium' },
-    { id: 7, title: 'Hard' },
-  ];
+  const [difficults, setdifficult] = useState(initialState);
 
   const dispatch = useDispatch();
   const { difficult, score }: LocalState = useSelector<RootState, BlocksGameState>(state => state.blocksGame);
 
   const selectTheDifficulty = useCallback((quantityBlocks: number) => {
-    const timeBeforeRemovingColor = quantityBlocks * 1000;
-    const blocksQuantity = quantityBlocks;
+    setdifficult(difficults.map((el: ButtonsArray) => (el.id === quantityBlocks ? { ...el, chosen: true } : el)));
 
-    const array: RandomSequence[] = [];
-    for (let block = 0; block < quantityBlocks; block += 1) {
-      array.push({ id: block + 1, linear: block, color: 'white', userSequenceId: 0 });
-    }
-    array.sort(() => 0.5 - Math.random());
+    setTimeout(() => {
+      const timeBeforeRemovingColor = quantityBlocks * 1000;
+      const blocksQuantity = quantityBlocks;
 
-    dispatch(actionSetRandomSequence({ array, timeBeforeRemovingColor, blocksQuantity }));
+      const array: RandomSequence[] = [];
+      for (let block = 0; block < quantityBlocks; block += 1) {
+        array.push({
+          id: block + 1,
+          linear: block,
+          color: 'white',
+          userSequenceId: 0,
+        });
+      }
+      array.sort(() => 0.5 - Math.random());
+
+      dispatch(
+        actionSetRandomSequence({
+          array,
+          timeBeforeRemovingColor,
+          blocksQuantity,
+        })
+      );
+      setdifficult(initialState);
+    }, 1500);
   }, []);
 
   return (
@@ -53,7 +71,7 @@ const Blockspage = () => {
           {score}
         </p>
       </div>
-      <Cube props={buttonsArray} />
+
       <div className={style.difficultySection}>
         {difficult ? (
           <div className={style.gameSection}>
@@ -61,8 +79,9 @@ const Blockspage = () => {
           </div>
         ) : (
           <div className={style.difficultyBox}>
+            <Cube props={difficults} />
             <p className={style.difficultyTitle}> Select the difficulty</p>
-            {buttonsArray.map(({ id, title }: ButtonsArray) => (
+            {difficults.map(({ id, title }: ButtonsArray) => (
               <Button key={id} id={id} handleClick={selectTheDifficulty}>
                 {title}
               </Button>

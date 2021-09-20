@@ -20,9 +20,13 @@
   position: relative;
   transform-style: preserve-3d;
   color: white;
+  transition: 0.9s;
 }
 
 .cube div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   width: 200px;
 
@@ -39,7 +43,7 @@
   background: gray;
 }
 .cube_right {
-  background: white;
+  background: black;
   transform: rotateY(180deg) translateZ(100px);
 }
 .cube_left {
