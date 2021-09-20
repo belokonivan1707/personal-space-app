@@ -29,11 +29,13 @@ const initialState = [
 
 const Blockspage = () => {
   const [difficults, setdifficult] = useState(initialState);
+  const [disable, setDisable] = useState(false);
 
   const dispatch = useDispatch();
   const { difficult, score }: LocalState = useSelector<RootState, BlocksGameState>(state => state.blocksGame);
 
   const selectTheDifficulty = useCallback((quantityBlocks: number) => {
+    setDisable(true);
     setdifficult(difficults.map((el: ButtonsArray) => (el.id === quantityBlocks ? { ...el, chosen: true } : el)));
 
     setTimeout(() => {
@@ -59,6 +61,7 @@ const Blockspage = () => {
         })
       );
       setdifficult(initialState);
+      setDisable(false);
     }, 1500);
   }, []);
 
@@ -82,7 +85,7 @@ const Blockspage = () => {
             <Cube props={difficults} />
             <p className={style.difficultyTitle}> Select the difficulty</p>
             {difficults.map(({ id, title }: ButtonsArray) => (
-              <Button key={id} id={id} handleClick={selectTheDifficulty}>
+              <Button key={id} id={id} handleClick={selectTheDifficulty} disable={disable}>
                 {title}
               </Button>
             ))}
