@@ -1,4 +1,4 @@
-interface Questions {
+export interface Questions {
   id: number;
   title: string;
   question: string;
@@ -14,8 +14,8 @@ export interface QuestionsJsType {
   title: string;
 
   questions: {
-    functions: Questions[];
     arrays: Questions[];
+    functions: Questions[];
   };
 }
 

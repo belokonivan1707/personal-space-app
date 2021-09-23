@@ -29,7 +29,7 @@ const CinemaCard = ({ props }: Props) => {
         style={{
           backgroundImage: `url(${image})`,
         }}
-      /> 
+      />
       <div
         tabIndex={0}
         role="button"
