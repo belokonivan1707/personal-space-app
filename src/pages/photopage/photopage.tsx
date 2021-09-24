@@ -19,7 +19,6 @@ const Photopage = () => {
   const [photosCounter, setPhotosCounter] = useState(10);
 
   const openPhoto = (item: PhotosType) => {
-    console.log('1');
     setPhotoItem(() => item);
     setOpenImage(true);
   };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Questions } from 'store/question/data/data';
-import { QuestionsStoreType, QuestionsInitialType } from 'store/question/types';
+import { Questions, QuestionsJsType } from 'store/question/data/data';
+import { QuestionsStoreType } from 'store/question/types';
 import QuestionsCategoriesMenu from '../questions-categories-menu/questions-categories-menu';
 import MenuItem from '../menu-item/menu-item';
 // import style from './styles.module.css';
@@ -21,9 +21,15 @@ interface TopicState {
   categories: Category | Record<string, never>;
 }
 
+interface QuestionsSelector {
+  JavaScript: QuestionsJsType;
+  CSS: QuestionsJsType;
+  HTML: QuestionsJsType;
+}
+
 const QuestionsTopicsMenu = () => {
-  const topicsStore: QuestionsInitialType = useSelector<QuestionsStoreType, QuestionsInitialType>(
-    state => state.questionsStore
+  const topicsStore: QuestionsSelector = useSelector<QuestionsStoreType, QuestionsSelector>(
+    state => state.questionsStore.questions
   );
 
   const [topic, setTopic] = useState<TopicState>({ display: 'topics-menu', categories: {} });
@@ -38,6 +44,7 @@ const QuestionsTopicsMenu = () => {
       {display === 'topics-menu' ? (
         <div>
           <h2>Topics Menu</h2>
+          <h1>Choose topic and pass a test</h1>
           <ul>
             {Object.keys(topicsStore).map(el => (
               <MenuItem key={el} title={el} handleClick={openTopic} />

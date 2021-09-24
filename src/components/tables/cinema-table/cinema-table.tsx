@@ -24,7 +24,7 @@ const CinemaTable = ({ props }: Props) => {
     return setCinema(() => [...props]);
   }, [props]);
 
-  const sortBy = (key: keyof typeof Object | any) => {
+  const sortBy = (key: keyof typeof Object | string) => {
     if (sortConfig.direction === 'ascending') {
       setSortConfig({ key, direction: 'descending' });
     } else {

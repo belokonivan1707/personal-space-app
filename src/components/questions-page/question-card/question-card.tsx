@@ -1,31 +1,29 @@
-import { useState } from 'react';
+import { Questions } from 'store/question/data/data';
 import style from './styles.module.css';
 
-const QuestionCard = ({ props }: any) => {
-  // const {question} = props
-  const [counter, setCounter] = useState({ lastindex: 0, currentindex: 1 });
+interface Props {
+  handleClick: (event: any, id: number) => void;
+  // handleClick: (event: React.MouseEvent<HTMLUListElement> | React.KeyboardEvent<HTMLUListElement>, id: number) => void;
+  quest: Questions;
+}
+
+const QuestionCard = ({ handleClick, quest }: Props) => {
+  const { id, question, first, second, third, fourth } = quest;
 
   return (
     <div className={style.questioncard}>
       <div>qestion card</div>
-      {props.slice(counter.lastindex, counter.currentindex).map((el: any) => {
-        return (
-          <div key={el.id}>
-            <h3>{el.question}</h3>
-            <button
-              type="button"
-              onClick={() => setCounter({ lastindex: counter.lastindex + 1, currentindex: counter.currentindex + 1 })}
-            >
-              {el['1']}
-            </button>
-            <button type="button">{el['2']}</button>
-            <button type="button">{el['3']}</button>
-            <button type="button">{el['4']}</button>
-          </div>
-        );
-      })}
+      <div>{question}</div>
+      <ul onClick={event => handleClick(event, id)} onKeyDown={event => handleClick(event, id)} role="presentation">
+        <li id="first">{first}</li>
+        <li id="second">{second}</li>
+        <li id="third">{third}</li>
+        <li id="fourth">{fourth}</li>
+      </ul>
     </div>
   );
 };
 
 export default QuestionCard;
+// MouseEvent<HTMLUListElement, MouseEvent>
+// React.ChangeEvent<HTMLInputElement>

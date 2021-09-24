@@ -1,6 +1,6 @@
-// import { useState } from 'react';
 import { useState } from 'react';
-import { Questions } from 'store/question/data/data';
+import { useDispatch } from 'react-redux';
+import { setSelectedCategoryOfQuestions } from 'store/question/action';
 import MenuItem from '../menu-item/menu-item';
 import { Category } from '../questions-topics-menu/questions-topics-menu';
 import style from './styles.module.css';
@@ -10,31 +10,25 @@ export interface Props {
 }
 
 interface State {
-  choosed: boolean;
-  quest: [] | Questions[];
+  selected: boolean;
 }
 
 const QuestionsCategoriesMenu = ({ props }: Props) => {
   const { title, questions } = props;
-
-  const [category, setCategory] = useState<State>({ choosed: false, quest: [] });
-  const { choosed, quest } = category;
+  const dispatch = useDispatch();
+  const [category, setCategory] = useState<State>({ selected: false });
+  const { selected } = category;
 
   const choosedCategory = (value: keyof typeof questions) => {
-    setCategory({ choosed: true, quest: questions[value] });
+    setCategory({ selected: true });
+    dispatch(setSelectedCategoryOfQuestions(questions[value]));
   };
 
   return (
     <div className={style.menu}>
       <h1>{title}</h1>
-      {choosed ? (
-        <div>
-          {quest.map((el: any) => {
-            return <p key={el.id}>{el.question}</p>;
-          })}
-          <p>hello</p>
-        </div>
-      ) : (
+      <h1>Choose the category:</h1>
+      {selected ? null : (
         <ul>
           {Object.keys(questions).map(el => {
             return <MenuItem key={el} title={el} handleClick={choosedCategory} />;

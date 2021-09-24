@@ -17,6 +17,7 @@ const PhotoCard = ({ item, handleClick }: Props) => {
 
   const changeFavoriteProperty = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation();
+
     dispatch(actionChangeFavoritePropertyOnPhoto(id));
   };
 

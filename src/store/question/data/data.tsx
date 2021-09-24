@@ -3,10 +3,11 @@ export interface Questions {
   title: string;
   question: string;
   link: string;
-  1: string;
-  2: string;
-  3: string;
-  4: string;
+  rightAnswers: string[];
+  first: string;
+  second: string;
+  third: string;
+  fourth: string;
 }
 
 export interface QuestionsJsType {
@@ -29,20 +30,33 @@ export const QUESTIONS_JS = {
         title: 'Immutability',
         question: 'Как зовут Василия?',
         link: ' ',
-        1: 'Василий',
-        2: 'Егор',
-        3: 'Николай',
-        4: 'Альберт',
+        rightAnswers: ['first'],
+        first: 'Василий',
+        second: 'Егор',
+        third: 'Николай',
+        fourth: 'Альберт',
       },
       {
         id: 2,
         title: 'Higher order function',
         question: 'Сколько Василию лет?',
         link: ' ',
-        1: '18',
-        2: '34',
-        3: '8',
-        4: '23',
+        rightAnswers: ['third'],
+        first: '18',
+        second: '34',
+        third: '8',
+        fourth: '23',
+      },
+      {
+        id: 3,
+        title: 'Higher order function',
+        question: 'Почему Ярик злиться всерьез, когда над ним шутят?',
+        link: ' ',
+        rightAnswers: ['first'],
+        first: 'У него низкая самооценка',
+        second: 'Он плохо контролирует свою злость',
+        third: 'Он хочет быть лидером и не может терпеть насмешек',
+        fourth: 'Его обижали в школе',
       },
     ],
     arrays: [
@@ -51,20 +65,22 @@ export const QUESTIONS_JS = {
         title: 'array',
         question: 'What is Immutability?',
         link: ' ',
-        1: 'Not changing the data, not changing the state. ',
-        2: 'The idea making cioues of the state and returning and returning a new state every time',
-        3: 'The idea making cioues of the state and returning and returning a new state every time',
-        4: 'The idea making cioues of the state and returning and returning a new state every time',
+        rightAnswers: ['first'],
+        first: 'Function which takes one or more function as arguments',
+        second: 'The idea making cioues of the state and returning and returning a new state every time',
+        third: 'Not changing the data, not changing the state',
+        fourth: '23',
       },
       {
         id: 10,
         title: 'array',
         question: 'What is higher order function?',
         link: ' ',
-        1: 'Function which takes one or more function as arguments',
-        2: 'Return the function as a result',
-        3: 'Return the function as a result',
-        4: 'Return the function as a result',
+        rightAnswers: ['first'],
+        first: 'Function which takes one or more function as arguments',
+        second: '34',
+        third: '8',
+        fourth: '23',
       },
     ],
   },
