@@ -1,14 +1,15 @@
 import { Reducer } from 'react';
-import { SetAnwerPayloadType } from './action';
 import {
   SET_SELECTED_CATEGORY_OF_QUESTIONS,
   SET_ANSWER_ON_QUESTION,
   SET_TEST_FINISHED,
   CHECK_THE_RESULT,
+  CHOOSE_NEW_TOPIC,
 } from './consts';
 import { Questions, QUESTIONS_JS } from './data/data';
 import { QuestionsInitialType } from './types';
-import { checkTheResultOfTest } from './utils';
+import { countCorrectAnswers, setNewAnswer } from './utils';
+import { SetAnwerPayloadType } from './action';
 
 const INNITTIAL_STATE = {
   questions: {
@@ -20,16 +21,17 @@ const INNITTIAL_STATE = {
     selectedCategory: [],
     testBegin: false,
     testFinised: false,
-    usersAnswers: [],
-    numberCorrectAnswers: 0,
+    userAnswers: [],
+    numbersOfCorrectAnswers: [],
   },
 };
 
 export type ActionsType =
   | { type: 'SET_SELECTED_CATEGORY_OF_QUESTIONS'; payload: Questions[] }
-  | { type: 'SET_ANSWER_ON_QUESTION'; payload: any }
+  | { type: 'SET_ANSWER_ON_QUESTION'; payload: SetAnwerPayloadType }
   | { type: 'SET_TEST_FINISHED' }
-  | { type: 'CHECK_THE_RESULT' };
+  | { type: 'CHECK_THE_RESULT' }
+  | { type: 'CHOOSE_NEW_TOPIC' };
 
 const questionReducer: Reducer<QuestionsInitialType, ActionsType> = (state = INNITTIAL_STATE, action) => {
   switch (action.type) {
@@ -42,7 +44,10 @@ const questionReducer: Reducer<QuestionsInitialType, ActionsType> = (state = INN
     case SET_ANSWER_ON_QUESTION:
       return {
         ...state,
-        user: { ...state.user, usersAnswers: [...state.user.usersAnswers, action.payload] },
+        user: {
+          ...state.user,
+          userAnswers: setNewAnswer(state.user.userAnswers, action.payload),
+        },
       };
 
     case SET_TEST_FINISHED:
@@ -56,7 +61,19 @@ const questionReducer: Reducer<QuestionsInitialType, ActionsType> = (state = INN
         ...state,
         user: {
           ...state.user,
-          numberCorrectAnswers: checkTheResultOfTest(state.user.selectedCategory, state.user.usersAnswers),
+          numbersOfCorrectAnswers: countCorrectAnswers(state.user.selectedCategory, state.user.userAnswers),
+        },
+      };
+
+    case CHOOSE_NEW_TOPIC:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          testBegin: false,
+          testFinised: false,
+          userAnswers: [],
+          numbersOfCorrectAnswers: [],
         },
       };
 

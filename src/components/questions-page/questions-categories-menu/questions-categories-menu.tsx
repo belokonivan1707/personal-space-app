@@ -26,8 +26,11 @@ const QuestionsCategoriesMenu = ({ props }: Props) => {
 
   return (
     <div className={style.menu}>
-      <h1>{title}</h1>
-      <h1>Choose the category:</h1>
+      <div>
+        <p>Selected topic:</p>
+        <p>{title}</p>
+      </div>
+      {selected ? null : <h1>Choose the category:</h1>}
       {selected ? null : (
         <ul>
           {Object.keys(questions).map(el => {

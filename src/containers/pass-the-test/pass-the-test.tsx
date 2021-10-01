@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setAnswerOnQuestion, setTestFinished } from 'store/question/action';
+import { QuestionsStoreType, SelectorUserType } from 'store/question/types';
 import { Questions } from 'store/question/data/data';
 import QuestionCard from 'components/questions-page/question-card/question-card';
 import style from './styles.module.css';
@@ -11,13 +12,27 @@ interface Props {
 
 const PassTheTest = ({ questions }: Props) => {
   const dispatch = useDispatch();
+  const currentTestInfo: SelectorUserType = useSelector<QuestionsStoreType, SelectorUserType>(
+    state => state.questionsStore.user
+  );
+  const { testFinised } = currentTestInfo;
+
   const [counter, setCounter] = useState({ lastindex: 0, currentindex: 1 });
   const { lastindex, currentindex } = counter;
 
-  const test = (e: any, id: number) => {
-    setCounter({ lastindex: lastindex + 1, currentindex: currentindex + 1 });
+  const [checkboxChecked, setCheckbox] = useState(false);
 
-    dispatch(setAnswerOnQuestion({ answer: e.target.id, questionId: id }));
+  const dispatchUserAnswer = (questionID: number, answerID: number) => {
+    setCheckbox(prev => !prev);
+    dispatch(setAnswerOnQuestion({ questionID, answerID }));
+  };
+
+  const nextQuestionButton = () => {
+    if (checkboxChecked) {
+      setCounter({ lastindex: lastindex + 1, currentindex: currentindex + 1 });
+      setCheckbox(prev => !prev);
+    }
+
     if (questions.length === currentindex) {
       dispatch(setTestFinished());
     }
@@ -25,13 +40,25 @@ const PassTheTest = ({ questions }: Props) => {
 
   return (
     <div className={style.questioncard}>
-      <div>PassTheTest</div>
+      {testFinised ? null : <h2>Pass The Test</h2>}
       {questions.slice(lastindex, currentindex).map((el: Questions) => {
-        return <QuestionCard key={el.id} quest={el} handleClick={test} />;
+        return (
+          <div key={el.id}>
+            <QuestionCard title={el.title} quest={el} handleClick={dispatchUserAnswer} />
+          </div>
+        );
       })}
+      <div>
+        {testFinised ? null : (
+          <div>
+            <button type="button" onClick={nextQuestionButton}>
+              {questions.length === currentindex ? 'Finish Test' : 'Next Question'}
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 export default PassTheTest;
-// React.MouseEvent<HTMLUListElement> | React.KeyboardEvent<HTMLUListElement> | React.EventTarget

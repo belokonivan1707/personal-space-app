@@ -2,28 +2,33 @@ import { Questions } from 'store/question/data/data';
 import style from './styles.module.css';
 
 interface Props {
-  handleClick: (event: any, id: number) => void;
-  // handleClick: (event: React.MouseEvent<HTMLUListElement> | React.KeyboardEvent<HTMLUListElement>, id: number) => void;
+  handleClick: (questionID: number, answerID: number) => void;
   quest: Questions;
+  title: string;
 }
 
-const QuestionCard = ({ handleClick, quest }: Props) => {
-  const { id, question, first, second, third, fourth } = quest;
+const QuestionCard = ({ handleClick, quest, title }: Props) => {
+  const { id, question, answerOption } = quest;
 
   return (
     <div className={style.questioncard}>
       <div>qestion card</div>
-      <div>{question}</div>
-      <ul onClick={event => handleClick(event, id)} onKeyDown={event => handleClick(event, id)} role="presentation">
-        <li id="first">{first}</li>
-        <li id="second">{second}</li>
-        <li id="third">{third}</li>
-        <li id="fourth">{fourth}</li>
+      <p>{title}</p>
+      <h3>{question}</h3>
+      <ul>
+        {answerOption.map(answer => {
+          return (
+            <div key={answer.id}>
+              <label>
+                <input type="checkbox" onClick={() => handleClick(id, answer.id)} />
+                {answer.option}
+              </label>
+            </div>
+          );
+        })}
       </ul>
     </div>
   );
 };
 
 export default QuestionCard;
-// MouseEvent<HTMLUListElement, MouseEvent>
-// React.ChangeEvent<HTMLInputElement>

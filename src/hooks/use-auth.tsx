@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-shadow */
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import firebase from 'firebase/app';
@@ -14,13 +15,15 @@ firebase.initializeApp({
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const authContext = createContext({} as any);
 const emailAlreadyUse = 'The email address is already in use by another account.';
 const wrongPassword = 'auth/wrong-password';
 const manyRequest = 'auth/too-many-requests';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ProvideAuth({ children }: any) {
-  const auth: any = useProvideAuth();
+  const auth: unknown = useProvideAuth();
   return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }
 
@@ -29,7 +32,7 @@ export const useAuth = () => {
 };
 
 function useProvideAuth() {
-  const [user, setUser] = useState<any>(() => localStorage.getItem('personal-space/auth'));
+  const [user, setUser] = useState<unknown>(() => localStorage.getItem('personal-space/auth'));
 
   const signin = (email: string, password: string) => {
     return firebase

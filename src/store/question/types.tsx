@@ -1,5 +1,16 @@
 import { Questions, QuestionsJsType } from './data/data';
 
+export interface UserAnswers {
+  questionID: number;
+  answers: number[];
+}
+
+export interface NumbersOfCorrectAnswers {
+  id: number;
+  name: string;
+  result: number;
+}
+
 export interface QuestionsStoreType {
   questionsStore: {
     questions: {
@@ -11,8 +22,8 @@ export interface QuestionsStoreType {
       selectedCategory: [] | Questions[];
       testBegin: boolean;
       testFinised: boolean;
-      usersAnswers: string[] | [];
-      numberCorrectAnswers: number;
+      userAnswers: [] | UserAnswers[];
+      numbersOfCorrectAnswers: NumbersOfCorrectAnswers[];
     };
   };
 }
@@ -27,7 +38,15 @@ export interface QuestionsInitialType {
     selectedCategory: [] | Questions[];
     testBegin: boolean;
     testFinised: boolean;
-    usersAnswers: string[] | [];
-    numberCorrectAnswers: number;
+    userAnswers: [] | UserAnswers[];
+    numbersOfCorrectAnswers: NumbersOfCorrectAnswers[];
   };
+}
+
+export interface SelectorUserType {
+  selectedCategory: [] | Questions[];
+  testBegin: boolean;
+  testFinised: boolean;
+  userAnswers: [] | UserAnswers[];
+  numbersOfCorrectAnswers: NumbersOfCorrectAnswers[];
 }

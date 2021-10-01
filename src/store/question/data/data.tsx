@@ -1,13 +1,15 @@
+export interface AnswerOption {
+  id: number;
+  option: string;
+}
+
 export interface Questions {
   id: number;
   title: string;
   question: string;
   link: string;
-  rightAnswers: string[];
-  first: string;
-  second: string;
-  third: string;
-  fourth: string;
+  rightAnswers: AnswerOption[];
+  answerOption: AnswerOption[];
 }
 
 export interface QuestionsJsType {
@@ -17,7 +19,7 @@ export interface QuestionsJsType {
   questions: {
     arrays: Questions[];
     functions: Questions[];
-  };
+  };  
 }
 
 export const QUESTIONS_JS = {
@@ -30,33 +32,39 @@ export const QUESTIONS_JS = {
         title: 'Immutability',
         question: 'Как зовут Василия?',
         link: ' ',
-        rightAnswers: ['first'],
-        first: 'Василий',
-        second: 'Егор',
-        third: 'Николай',
-        fourth: 'Альберт',
+        rightAnswers: [{ id: 1, option: 'Василий' }],
+        answerOption: [
+          { id: 1, option: 'Василий' },
+          { id: 2, option: 'Егор' },
+          { id: 3, option: 'Анатолий' },
+          { id: 4, option: 'Писков' },
+        ],
       },
       {
         id: 2,
         title: 'Higher order function',
-        question: 'Сколько Василию лет?',
+        question: '25 - 20 ?',
         link: ' ',
-        rightAnswers: ['third'],
-        first: '18',
-        second: '34',
-        third: '8',
-        fourth: '23',
+        rightAnswers: [{ id: 1, option: '5' }],
+        answerOption: [
+          { id: 1, option: '5' },
+          { id: 2, option: '1' },
+          { id: 3, option: '2' },
+          { id: 4, option: '23' },
+        ],
       },
       {
         id: 3,
         title: 'Higher order function',
-        question: 'Почему Ярик злиться всерьез, когда над ним шутят?',
+        question: 'Какого цвета небо в ясную погоду?',
         link: ' ',
-        rightAnswers: ['first'],
-        first: 'У него низкая самооценка',
-        second: 'Он плохо контролирует свою злость',
-        third: 'Он хочет быть лидером и не может терпеть насмешек',
-        fourth: 'Его обижали в школе',
+        rightAnswers: [{ id: 4, option: 'Голубое' }],
+        answerOption: [
+          { id: 1, option: 'Оранжевое' },
+          { id: 2, option: 'Пиздец' },
+          { id: 3, option: 'Черное' },
+          { id: 4, option: 'Голубое' },
+        ],
       },
     ],
     arrays: [
@@ -65,22 +73,26 @@ export const QUESTIONS_JS = {
         title: 'array',
         question: 'What is Immutability?',
         link: ' ',
-        rightAnswers: ['first'],
-        first: 'Function which takes one or more function as arguments',
-        second: 'The idea making cioues of the state and returning and returning a new state every time',
-        third: 'Not changing the data, not changing the state',
-        fourth: '23',
+        rightAnswers: [{ id: 4, option: 'Василий' }],
+        answerOption: [
+          { id: 1, option: 'Василий' },
+          { id: 2, option: 'Егор' },
+          { id: 3, option: 'Анатолий' },
+          { id: 4, option: 'Писков' },
+        ],
       },
       {
         id: 10,
         title: 'array',
         question: 'What is higher order function?',
         link: ' ',
-        rightAnswers: ['first'],
-        first: 'Function which takes one or more function as arguments',
-        second: '34',
-        third: '8',
-        fourth: '23',
+        rightAnswers: [{ id: 1, option: 'Василий' }],
+        answerOption: [
+          { id: 1, option: 'Василий' },
+          { id: 2, option: 'Егор' },
+          { id: 3, option: 'Анатолий' },
+          { id: 4, option: 'Писков' },
+        ],
       },
     ],
   },

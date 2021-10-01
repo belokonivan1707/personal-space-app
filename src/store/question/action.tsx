@@ -3,6 +3,7 @@ import {
   SET_ANSWER_ON_QUESTION,
   SET_TEST_FINISHED,
   CHECK_THE_RESULT,
+  CHOOSE_NEW_TOPIC,
 } from './consts';
 import { Questions } from './data/data';
 
@@ -14,8 +15,8 @@ export const setSelectedCategoryOfQuestions = (payload: Questions[]) => {
 };
 
 export interface SetAnwerPayloadType {
-  answer: string;
-  questionId: number;
+  answerID: number;
+  questionID: number;
 }
 
 export const setAnswerOnQuestion = (payload: SetAnwerPayloadType) => {
@@ -34,5 +35,10 @@ export const setTestFinished = () => {
 export const checkTheResult = () => {
   return {
     type: CHECK_THE_RESULT,
+  };
+};
+export const chooseNewTopic = () => {
+  return {
+    type: CHOOSE_NEW_TOPIC,
   };
 };

@@ -15,6 +15,7 @@ import { useAuth } from '../../hooks/use-auth';
 //   protected: boolean; // This will defines if the route is proteted or not
 // }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const PrivateRoute = ({ children }: any) => {
   // console.log(children);
   const auth = useAuth();

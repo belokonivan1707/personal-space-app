@@ -43,8 +43,7 @@ const QuestionsTopicsMenu = () => {
     <div>
       {display === 'topics-menu' ? (
         <div>
-          <h2>Topics Menu</h2>
-          <h1>Choose topic and pass a test</h1>
+          <h1>Choose topic and pass a test:</h1>
           <ul>
             {Object.keys(topicsStore).map(el => (
               <MenuItem key={el} title={el} handleClick={openTopic} />
