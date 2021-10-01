@@ -1,7 +1,7 @@
 .photoBox {
   position: relative;
   width: calc(33.3% - 20px);
-  /* min-width: 330px; */
+  min-width: 330px;
   margin: 0 10px 20px 10px;
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
 }
@@ -12,7 +12,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  cursor: zoom-in;
 }
 
 .title {
@@ -27,24 +26,15 @@
   text-transform: uppercase;
 }
 
-.like {
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 25px;
-  cursor: pointer;
-  background-color: chartreuse;
-  transition: 0.3s;
-}
-
 .inside {
   z-index: 3;
 }
 
-.photoBox:hover .like {
-  visibility: visible;
-  opacity: 1;
+@media (max-width: 700px) {
+  .photoBox {
+    min-width: calc(100% - 30px);
+  }
+  .photo {
+    height: 450px;
+  }
 }

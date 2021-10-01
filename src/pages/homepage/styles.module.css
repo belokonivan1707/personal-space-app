@@ -5,33 +5,22 @@
   box-sizing: border-box;
 }
 
-/* @media (max-width: 1180px) {
-  .container {
-    max-width: 890px;
-  }
-}
-
-@media (max-width: 890px) {
-  .container {
-    max-width: 590px;
-  }
-} */
-
 .homepage {
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .titlebox {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 0 10px;
 }
 
 .title {
   text-align: start;
-  font-size: 72px;
-  line-height: 76px;
-  font-weight: 600;
+  font-size: 56px;
+  line-height: 78px;
+  font-weight: bold;
   letter-spacing: -1px;
+  text-transform: uppercase;
 }
 
 .subtitle {
@@ -52,41 +41,80 @@
   margin-bottom: 40px;
 }
 
-@media (max-width: 720px) {
-  .homepage {
-    padding-top: 40px;
-  }
-
-  .title {
-    font-size: 56px;
-    line-height: 64px;
-  }
-
-  .subtitle {
-    font-size: 36px;
-    line-height: 54px;
-  }
-}
-
-@media (max-width: 556px) {
+@media (max-width: 725px) {
   .homepage {
     padding-top: 20px;
   }
 
   .titlebox {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   .title {
-    font-size: 44px;
-    line-height: 52px;
+    font-size: 46px;
+    line-height: 58px;
+  }
+
+  .subtitle {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 46px;
+    letter-spacing: -0.4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .titlebox {
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 46px;
+  }
+
+  .subtitle {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: -0.4px;
+  }
+}
+
+@media (max-width: 500px) {
+  .homepage {
+    padding-top: 15px;
+  }
+
+  .titlebox {
+    padding: 0 5px 0 5px;
+    margin-bottom: 5px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
   }
 
   .subtitle {
     padding: 0 5px;
     font-size: 26px;
-    font-weight: 600;
-    line-height: 38px;
+    font-weight: 500;
+    line-height: 34px;
     letter-spacing: -0.4px;
+  }
+}
+
+@media (max-width: 415px) {
+  .title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: -0.2px;
   }
 }

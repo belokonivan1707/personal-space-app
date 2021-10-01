@@ -23,14 +23,14 @@ const PassTheTest = ({ questions }: Props) => {
   const [checkboxChecked, setCheckbox] = useState(false);
 
   const dispatchUserAnswer = (questionID: number, answerID: number) => {
-    setCheckbox(prev => !prev);
+    setCheckbox(() => true);
     dispatch(setAnswerOnQuestion({ questionID, answerID }));
   };
 
   const nextQuestionButton = () => {
     if (checkboxChecked) {
       setCounter({ lastindex: lastindex + 1, currentindex: currentindex + 1 });
-      setCheckbox(prev => !prev);
+      setCheckbox(() => false);
     }
 
     if (questions.length === currentindex) {

@@ -130,3 +130,9 @@
     padding-bottom: 0;
   }
 }
+
+@media (max-width: 585px) {
+  .photo {
+    max-width: 100%;
+  }
+}

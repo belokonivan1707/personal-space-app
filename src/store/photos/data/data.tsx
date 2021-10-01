@@ -26,22 +26,6 @@ export interface PhotosType {
 export const PHOTOS = [
   {
     id: 1,
-    title: 'city Dnipro',
-    image: IMG_1000,
-    mobileImg: IMG_0000,
-    description: 'Lorem ipsum dolores belgiium helium amros simbous tith',
-    favorite: false,
-  },
-  {
-    id: 2,
-    title: 'welcome to home',
-    image: IMG_1001,
-    mobileImg: IMG_0001,
-    description: 'Lorem ipsum dolores belgiium helium amros simbous tith',
-    favorite: false,
-  },
-  {
-    id: 3,
     title: 'friend',
     image: IMG_1002,
     mobileImg: IMG_0002,
@@ -49,11 +33,27 @@ export const PHOTOS = [
     favorite: false,
   },
   {
-    id: 4,
+    id: 2,
+    title: 'by bus',
+    image: IMG_1006,
+    mobileImg: IMG_0006,
+    description: '',
+    favorite: false,
+  },
+  {
+    id: 3,
     title: 'pseudo',
     image: IMG_1003,
     mobileImg: IMG_0003,
     description: '',
+    favorite: false,
+  },
+  {
+    id: 4,
+    title: 'welcome to home',
+    image: IMG_1001,
+    mobileImg: IMG_0001,
+    description: 'Lorem ipsum dolores belgiium helium amros simbous tith',
     favorite: false,
   },
   {
@@ -74,10 +74,10 @@ export const PHOTOS = [
   },
   {
     id: 7,
-    title: 'by bus',
-    image: IMG_1006,
-    mobileImg: IMG_0006,
-    description: '',
+    title: 'city Dnipro',
+    image: IMG_1000,
+    mobileImg: IMG_0000,
+    description: 'Lorem ipsum dolores belgiium helium amros simbous tith',
     favorite: false,
   },
 ];

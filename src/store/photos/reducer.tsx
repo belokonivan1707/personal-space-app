@@ -1,6 +1,5 @@
 import { Reducer } from 'react';
 import { CHANGE_FAVORITE_PROPERTY_ON_PHOTO } from './const';
-// import { } from './action';
 import { PHOTOS } from './data/data';
 import { changeFavoriteProperty } from './utils';
 import { PhotosState } from './types';
