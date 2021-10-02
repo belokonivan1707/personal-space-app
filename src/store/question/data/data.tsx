@@ -19,7 +19,7 @@ export interface QuestionsJsType {
   questions: {
     arrays: Questions[];
     functions: Questions[];
-  };  
+  };
 }
 
 export const QUESTIONS_JS = {

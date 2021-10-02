@@ -3,6 +3,7 @@ import PrivateRoute from 'components/private-route/private-route';
 import BooksPage from 'pages/bookspage/bookspage';
 import SignInForm from 'containers/sign-in-form/sign-in-form';
 import QuestionPage from 'pages/questionpage/questionpage';
+import ArticlesPage from 'pages/articles/articles-page';
 import Homepage from './pages/homepage/homepage';
 import Blockspage from './pages/blockspage/blockspage';
 import Cinemapage from './pages/cinemapage/cinemapage';
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/signin" component={SignInForm} />
           <Route path="/signup" component={SignUpForm} />
           <Route path="/questions" component={QuestionPage} />
+          <Route path="/articles" component={ArticlesPage} />
 
           <PrivateRoute path="/blocksgame">
             <Blockspage />

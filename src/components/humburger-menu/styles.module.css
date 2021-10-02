@@ -135,7 +135,7 @@
   color: rgba(255, 255, 255, 1);
 }
 
-@media (max-width: 650px) {
+@media (max-width: 770px) {
   .buttonbox {
     height: 50px;
   }
