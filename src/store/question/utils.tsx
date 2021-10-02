@@ -10,6 +10,7 @@ export const countCorrectAnswers = (questions: Questions[], userAnswers: UserAns
   for (let i = 0; i < questions.length; i += 1) {
     if (questions[i].rightAnswers.length !== 0) {
       const foundUserAnswersForCurrentQuestion = userAnswers?.find(el => el?.questionID === questions[i]?.id)?.answers;
+      
       if (foundUserAnswersForCurrentQuestion) {
         let correctAnswersForCurrentQuestion = 0;
         questions[i].rightAnswers.forEach(rightAnswer => {

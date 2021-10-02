@@ -33,7 +33,7 @@ const HumburgerMenu = () => {
         </div>
       </div>
 
-      <div className={`${hamburger ? `${style.menu}` : `${style.close}`}`}>
+      <div className={`${hamburger ? `${style.openmenu}` : `${style.close}`}`}>
         <div className={style.itemlist}>
           {TOP_MENU.map(el => {
             return (
