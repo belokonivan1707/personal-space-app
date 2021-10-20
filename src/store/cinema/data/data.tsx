@@ -5,6 +5,7 @@ import ReservoirDogs from './images/Reservoir-Dogs.jpg';
 import Untouchables from './images/Untouchables.jpg';
 import RumbleFish from './images/Rumble-Fish.jpg';
 import MissionToMars from './images/Mission-to-Mars.jpg';
+import Europe from './images/europe.jpg';
 
 export interface FilmsType {
   id: number;
@@ -18,6 +19,16 @@ export interface FilmsType {
 }
 
 export const films = [
+  {
+    id: 18,
+    title: 'Europe',
+    director: 'Lars von Trier',
+    country: 'Denmark, Sweden, France, Germany, Switzerland',
+    year: '1991',
+    image: Europe,
+    rating: 5,
+    favorite: true,
+  },
   {
     id: 7,
     title: 'Reservoir Dogs',

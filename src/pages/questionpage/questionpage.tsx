@@ -1,9 +1,10 @@
-import QuestionsTopicsMenu from 'components/questions-page/questions-topics-menu/questions-topics-menu';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { QuestionsStoreType, SelectorUserType } from 'store/question/types';
 import PassTheTest from 'containers/pass-the-test/pass-the-test';
-import style from './styles.module.css';
+import QuestionsTopicsMenu from 'components/questions-page/questions-topics-menu/questions-topics-menu';
 import { checkTheResult, chooseNewTopic } from '../../store/question/action';
+import style from './styles.module.css';
 
 const QuestionPage = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,10 @@ const QuestionPage = () => {
     state => state.questionsStore.user
   );
   const { selectedCategory, testBegin, testFinised, numbersOfCorrectAnswers } = currentTestInfo;
+
+  // useEffect(() => {
+  //   // dispatch(chooseNewTopic());
+  // }, []);
 
   return (
     <div className={style.questionpage}>
@@ -40,6 +45,9 @@ const QuestionPage = () => {
           <div>
             <button type="button" onClick={() => dispatch(chooseNewTopic())}>
               Return to the topic menu:
+            </button>
+            <button type="button" onClick={() => dispatch(chooseNewTopic())}>
+              Wotch all answers
             </button>
           </div>
         </div>
