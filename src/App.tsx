@@ -27,10 +27,12 @@ const App = () => {
           <Route path="/signin" component={SignInForm} />
           <Route path="/signup" component={SignUpForm} />
           <Route path="/questions" component={QuestionPage} />
-          <Route path="/articles" component={ArticlesPage} />
 
           <PrivateRoute path="/blocksgame">
             <Blockspage />
+          </PrivateRoute>
+          <PrivateRoute path="/articles">
+            <ArticlesPage />
           </PrivateRoute>
         </Switch>
       </Router>
