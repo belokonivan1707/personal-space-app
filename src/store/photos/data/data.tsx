@@ -43,7 +43,8 @@ export const PHOTOS = [
   {
     id: 3,
     title: 'pseudo',
-    image: IMG_1003,
+    image: IMG_0003,
+    // image: IMG_1003,
     mobileImg: IMG_0003,
     description: '',
     favorite: false,

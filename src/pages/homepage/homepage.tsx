@@ -79,6 +79,7 @@ const Homepage = () => {
             })}
           </div>
           <h2 className={style.subtitle}>Art</h2>
+          <h2>i so tired </h2>
         </div>
         <div>
           <Profile />
