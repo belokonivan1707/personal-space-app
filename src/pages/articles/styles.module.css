@@ -2,4 +2,58 @@
   max-width: 1180px;
   width: 100%;
   margin: 0 auto;
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+
+.articles_navigation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.articles_box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.category_title {
+  margin-bottom: 15px;
+  padding: 0 15px;
+  background: rgba(128, 128, 128, 0.4);
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.322);
+  line-height: 50px;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu_item {
+  padding: 10px 15px;
+  background: pink;
+  box-sizing: border-box;
+}
+
+.menu_item_link {
+  line-height: 30px;
+}
+
+.menu_item:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.menu_item:hover .menu_item_link {
+  color: white;
+}
+
+.menu_item:not(:first-child) {
+  margin-left: 15px;
+}
+
+.settings {
+  margin-left: 15px;
 }

@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import CinemaCard from 'components/cards/cinema-card/cinema-card';
 import PhotoCard from 'components/cards/photo-card/photo-card';
-import Profile from 'containers/profile/profile';
 import { PhotosType } from 'store/photos/data/data';
 import { PhotosStore } from 'pages/photopage/photopage';
+import ProvideData from './test-use-context';
 import WriterCard from '../../components/cards/writer-card/writer-card';
 import { WritersType } from '../../store/writers/data';
 import { FilmsType } from '../../store/cinema/data/data';
@@ -52,40 +52,37 @@ const Homepage = () => {
   };
 
   return (
-    <div className={style.container}>
-      <div className={style.homepage}>
-        <div className={style.titlebox}>
-          <h1 className={style.title}>It is time to meet!</h1>
-          <h1 className={style.title}>On this website, I share :</h1>
-        </div>
+    <ProvideData>
+      <div className={style.container}>
+        <div className={style.homepage}>
+          <div className={style.titlebox}>
+            <h1 className={style.title}>It is time to meet!</h1>
+            <h1 className={style.title}>On this website, I share :</h1>
+          </div>
 
-        <div className={style.presentation}>
-          <h2 className={style.subtitle}>My favorit movies</h2>
-          <div className={style.contentbox}>
-            {cinema.slice(0, countCinemaCards).map((item: FilmsType) => (
-              <CinemaCard key={item.id} props={item} />
-            ))}
+          <div className={style.presentation}>
+            <h2 className={style.subtitle}>My favorit movies</h2>
+            <div className={style.contentbox}>
+              {cinema.slice(0, countCinemaCards).map((item: FilmsType) => (
+                <CinemaCard key={item.id} props={item} />
+              ))}
+            </div>
+            <h2 className={style.subtitle}>Literature and quotes</h2>
+            <div className={style.contentbox}>
+              {writersToShow.slice(0, 1).map((item: WritersType) => (
+                <WriterCard key={item.id} props={item} />
+              ))}
+            </div>
+            <h2 className={style.subtitle}>Photographies</h2>
+            <div className={style.contentbox}>
+              {photos.slice(0, 3).map((item: PhotosType) => {
+                return <PhotoCard key={item.id} handleClick={test} item={item} />;
+              })}
+            </div>
           </div>
-          <h2 className={style.subtitle}>Literature and quotes</h2>
-          <div className={style.contentbox}>
-            {writersToShow.slice(0, 1).map((item: WritersType) => (
-              <WriterCard key={item.id} props={item} />
-            ))}
-          </div>
-          <h2 className={style.subtitle}>Photographies</h2>
-          <div className={style.contentbox}>
-            {photos.slice(0, 3).map((item: PhotosType) => {
-              return <PhotoCard key={item.id} handleClick={test} item={item} />;
-            })}
-          </div>
-          <h2 className={style.subtitle}>Art</h2>
-          <h2>i so tired </h2>
-        </div>
-        <div>
-          <Profile />
         </div>
       </div>
-    </div>
+    </ProvideData>
   );
 };
 

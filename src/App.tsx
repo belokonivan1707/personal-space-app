@@ -17,6 +17,9 @@ const Photopage = React.lazy(() => import('./pages/photopage/photopage'));
 
 const Welcomepage = React.lazy(() => import('./pages/welcomepage/welcomepage'));
 
+const testString = 'Fucking bad news! Always the same! p.s: this string from use context';
+export const TestUseContextStore = React.createContext(testString);
+
 const Loader = () => {
   return (
     <div>
@@ -27,30 +30,32 @@ const Loader = () => {
 
 const App = () => {
   return (
-    <ProvideAuth>
-      <Router>
-        <Navigation />
-        <Suspense fallback={<Loader />}>
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/books" component={BooksPage} />
-            <Route path="/photos" component={Photopage} />
-            <Route path="/cinema" component={Cinemapage} />
-            <Route path="/welcome" component={Welcomepage} />
-            <Route path="/questions" component={QuestionPage} />
-            <Route path="/signup" component={SignUpForm} />
-            <Route path="/signin" component={SignInForm} />
+    <TestUseContextStore.Provider value={testString}>
+      <ProvideAuth>
+        <Router>
+          <Navigation />
+          <Suspense fallback={<Loader />}>
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route path="/books" component={BooksPage} />
+              <Route path="/photos" component={Photopage} />
+              <Route path="/cinema" component={Cinemapage} />
+              <Route path="/welcome" component={Welcomepage} />
+              <Route path="/questions" component={QuestionPage} />
+              <Route path="/signup" component={SignUpForm} />
+              <Route path="/signin" component={SignInForm} />
 
-            <PrivateRoute path="/blocksgame">
-              <Blockspage />
-            </PrivateRoute>
-            <PrivateRoute path="/articles">
-              <ArticlesPage />
-            </PrivateRoute>
-          </Switch>
-        </Suspense>
-      </Router>
-    </ProvideAuth>
+              <PrivateRoute path="/blocksgame">
+                <Blockspage />
+              </PrivateRoute>
+              <PrivateRoute path="/articles">
+                <ArticlesPage />
+              </PrivateRoute>
+            </Switch>
+          </Suspense>
+        </Router>
+      </ProvideAuth>
+    </TestUseContextStore.Provider>
   );
 };
 

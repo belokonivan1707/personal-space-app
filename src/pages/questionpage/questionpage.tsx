@@ -13,9 +13,7 @@ const QuestionPage = () => {
   const { selectedCategory, testBegin, testFinised, numbersOfCorrectAnswers } = currentTestInfo;
 
   return (
-    <div className={style.questionpage}>
-      <h1>Improve your knowledge with us</h1>
-
+    <div className={style.container}>
       {testBegin ? <PassTheTest questions={selectedCategory} /> : <QuestionsTopicsMenu />}
       {testFinised && numbersOfCorrectAnswers.length === 0 ? (
         <div>

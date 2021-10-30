@@ -4,7 +4,7 @@ import { Questions, QuestionsJsType } from 'store/question/data/data';
 import { QuestionsStoreType } from 'store/question/types';
 import QuestionsCategoriesMenu from '../questions-categories-menu/questions-categories-menu';
 import MenuItem from '../menu-item/menu-item';
-// import style from './styles.module.css';
+import style from './styles.module.css';
 
 export interface Category {
   id: number;
@@ -43,7 +43,7 @@ const QuestionsTopicsMenu = () => {
     <div>
       {display === 'topics-menu' ? (
         <div>
-          <h1>Choose topic and pass a test:</h1>
+          <h1 className={style.title}>Choose topic and pass a test:</h1>
           <ul>
             {Object.keys(topicsStore).map(el => (
               <MenuItem key={el} title={el} handleClick={openTopic} />

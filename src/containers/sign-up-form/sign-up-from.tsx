@@ -12,7 +12,7 @@ const SignUpForm = () => {
   const [emailError, setEmailError] = useState<Errors>({ status: '', messadge: '', border: '' });
   const [passwordError, setPasswordError] = useState<Errors>({ status: '', messadge: '', border: '' });
   const [credentials, setCredentials] = useState<Credentials>({
-    email: '',
+    email: '', 
     password: '',
     repeatPassword: '',
   });

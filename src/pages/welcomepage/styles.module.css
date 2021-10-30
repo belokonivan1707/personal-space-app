@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1180px;
+  width: 100%;
+  height: calc(100vh - 100px);
+  margin: 0 auto;
+}
+
+.greeting_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.message {
+  margin-left: 30px;
+}

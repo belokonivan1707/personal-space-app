@@ -35,10 +35,16 @@
 
 .contentbox {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: stretch;
   justify-content: space-around;
   margin-bottom: 40px;
+  padding: 0 5px;
+}
+
+@media (max-width: 1150px) {
+  .contentbox {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 725px) {
