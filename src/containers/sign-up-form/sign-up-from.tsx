@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useAuth } from '../../hooks/use-auth';
 import { validateEmail, validatePassword } from './utils';
 import { Credentials, Errors } from './types';
 import style from './styles.module.css';
-import { useAuth } from '../../hooks/use-auth';
 
 const SignUpForm = () => {
   const auth = useAuth();
@@ -12,7 +12,7 @@ const SignUpForm = () => {
   const [emailError, setEmailError] = useState<Errors>({ status: '', messadge: '', border: '' });
   const [passwordError, setPasswordError] = useState<Errors>({ status: '', messadge: '', border: '' });
   const [credentials, setCredentials] = useState<Credentials>({
-    email: '', 
+    email: '',
     password: '',
     repeatPassword: '',
   });

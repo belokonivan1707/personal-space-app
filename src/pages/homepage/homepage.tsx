@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import CinemaCard from 'components/cards/cinema-card/cinema-card';
@@ -25,6 +26,8 @@ const Homepage = () => {
 
   const [width, setWidth] = useState(window.innerWidth);
   const [countCinemaCards, setCountCinemaCards] = useState(4);
+
+  const history = useHistory();
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -61,19 +64,34 @@ const Homepage = () => {
           </div>
 
           <div className={style.presentation}>
-            <h2 className={style.subtitle}>My favorit movies</h2>
+            <div className={style.subtitle_box}>
+              <h2 className={style.subtitle}>My favorit movies</h2>
+              <p className={style.link} role="presentation" onClick={() => history.push({ pathname: '/cinema' })}>
+                open page
+              </p>
+            </div>
             <div className={style.contentbox}>
               {cinema.slice(0, countCinemaCards).map((item: FilmsType) => (
                 <CinemaCard key={item.id} props={item} />
               ))}
             </div>
-            <h2 className={style.subtitle}>Literature and quotes</h2>
+            <div className={style.subtitle_box}>
+              <h2 className={style.subtitle}>Literature and quotes</h2>
+              <p className={style.link} role="presentation" onClick={() => history.push({ pathname: '/books' })}>
+                open page
+              </p>
+            </div>
             <div className={style.contentbox}>
               {writersToShow.slice(0, 1).map((item: WritersType) => (
                 <WriterCard key={item.id} props={item} />
               ))}
             </div>
-            <h2 className={style.subtitle}>Photographies</h2>
+            <div className={style.subtitle_box}>
+              <h2 className={style.subtitle}>Photographies</h2>
+              <p className={style.link} role="presentation" onClick={() => history.push({ pathname: '/photos' })}>
+                open page
+              </p>
+            </div>
             <div className={style.contentbox}>
               {photos.slice(0, 3).map((item: PhotosType) => {
                 return <PhotoCard key={item.id} handleClick={test} item={item} />;
