@@ -7,8 +7,8 @@ import { PhotosType } from 'store/photos/data/data';
 import { PhotosStore } from 'pages/photopage/photopage';
 import ProvideData from './test-use-context';
 import WriterCard from '../../components/cards/writer-card/writer-card';
-import { FilmsType } from '../../store/cinema/data/data';
 import { WritersType } from '../../store/writers/data';
+import { FilmsType } from '../../store/cinema/data/data';
 import style from './styles.module.css';
 
 interface CinemaStore {
