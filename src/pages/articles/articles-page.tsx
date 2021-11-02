@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { requestData } from 'store/articles/actions';
 import { ArticlesDataTypes } from 'store/articles/data/data';
 import { ArticlesStoreTypes } from 'store/articles/types';
 import ArticlesCard from 'components/articles/article-card/article-card';
@@ -35,11 +36,16 @@ const Settings = ({ removeSettings, showArticles }: Props) => {
 };
 
 const ArticlesPage = () => {
+  const dispatch = useDispatch();
   const articlesEN = useSelector<ArticlesStoreTypes, ArticlesDataTypes[]>(state => state.articlesStore.articlesEN);
   const articlesRU = useSelector<ArticlesStoreTypes, ArticlesDataTypes[]>(state => state.articlesStore.articles);
   const [hideSettings, setHideSetting] = useState(true);
   const [showSecretNotes, setShowSecretNotes] = useState(false);
   const [showFreeNotes, setFreeNotes] = useState(false);
+
+  useEffect(() => {
+    dispatch(requestData());
+  }, []);
 
   const chooseCategory = (e: React.MouseEvent<HTMLLIElement, MouseEvent> | React.KeyboardEvent<HTMLLIElement>) => {
     const category: string = e.currentTarget.id;

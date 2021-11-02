@@ -1,47 +1,28 @@
 import { call, put, takeEvery, delay } from '@redux-saga/core/effects';
-// import { usersError, usersSuccess, singleUserSuccess, postSingleUserSuccess, postUsersError } from './action';
-// import { postSingleUserCloseAlert } from './action';
+import { requestSuccess, requestError } from './actions';
+import { UsersCommentsData } from './types';
 
-interface GetUsers {
-  getUsers: () => Promise<any>;
-}
+// interface GetComments {
+//   getUsers: () => Promise<UsersCommentsData[]>;
+// }
 
-const getUsers = () => {
-  return fetch('https://jsonplaceholder.typicode.com/users')
+const commentsAPI = 'https://jsonplaceholder.typicode.com/comments';
+
+const getData = (url: string) => {
+  return fetch(url)
     .then(response => response.json())
     .catch(error => {
       throw error;
     });
 };
 
-// const getSingleUser = id => {
-//   return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-//     .then(response => response.json())
-//     .catch(error => {
-//       throw error;
-//     });
-// };
-
-// const postUser = payload => {
-//   return fetch('https://jsonplaceholder.typicode.com/posts', {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify(payload),
-//   })
-//     .then(response => {
-//       console.log(response.status);
-//     })
-//     .then(data => console.log(data));
-// };
-
 function* fetchUsers() {
   try {
-    const users: GetUsers = yield call(getUsers);
+    const comments: UsersCommentsData[] = yield call(getData, commentsAPI);
     yield delay(500);
-    yield console.log(users);
-    // yield put(usersSuccess(users));
+    yield put(requestSuccess(comments));
   } catch (e) {
-    // yield put(usersError());
+    yield put(requestError());
   }
 }
 
@@ -72,3 +53,23 @@ export default function* usersWatcher() {
   // yield takeEvery('SINGLE_USER_REQUESTING', fetchSingleUser);
   // yield takeEvery('POST_SINGLE_USER', postRequest);
 }
+
+// const getSingleUser = id => {
+//   return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+//     .then(response => response.json())
+//     .catch(error => {
+//       throw error;
+//     });
+// };
+
+// const postUser = payload => {
+//   return fetch('https://jsonplaceholder.typicode.com/posts', {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(payload),
+//   })
+//     .then(response => {
+//       console.log(response.status);
+//     })
+//     .then(data => console.log(data));
+// };

@@ -1,1 +1,3 @@
-export const TEST = 'TEST';
+export const REQUEST_DATA = 'REQUEST_DATA';
+export const REQUEST_SUCCESS = 'REQUEST_SUCCESS';
+export const REQUEST_ERROR = 'REQUEST_ERROR';
