@@ -16,6 +16,8 @@ export interface Props {
 const CinemaCard = ({ props }: Props) => {
   const dispatch = useDispatch();
 
+  // const data = useFuckingData();
+
   const { id, title, director, country, image, year, rating, favorite } = props;
 
   const array = [1, 2, 3, 4, 5];
