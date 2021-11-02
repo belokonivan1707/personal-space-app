@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { QuestionsStoreType, SelectorUserType } from 'store/question/types';
 import PassTheTest from 'containers/pass-the-test/pass-the-test';
@@ -13,14 +12,8 @@ const QuestionPage = () => {
   );
   const { selectedCategory, testBegin, testFinised, numbersOfCorrectAnswers } = currentTestInfo;
 
-  // useEffect(() => {
-  //   // dispatch(chooseNewTopic());
-  // }, []);
-
   return (
-    <div className={style.questionpage}>
-      <h1>Improve your knowledge with us</h1>
-
+    <div className={style.container}>
       {testBegin ? <PassTheTest questions={selectedCategory} /> : <QuestionsTopicsMenu />}
       {testFinised && numbersOfCorrectAnswers.length === 0 ? (
         <div>

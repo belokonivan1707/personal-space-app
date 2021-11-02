@@ -5,6 +5,17 @@ export interface ArticlesDataTypes {
   body: string[];
 }
 
+export const ARTICLES_DATA = [
+  {
+    id: 1,
+    title: 'Notes',
+    date: '2021',
+    body: [
+      'As you already know, I work a frontend developer, approximately, three years. The main stack technologies that I use, It Is React/Redux, TypeScript. Before I started work in the web-developing sphere, my work was far from programming languages, and for fun, I just wanted to own a little website, I even did not know what the content will be on this website. I began to be interested in how I can do it. I found a lot of resources and it excited me, I did do it after work, on weekends, It was like a game for me. After half year I changed my work I am excited to work in the web-developing sphere,  where I can overcome difficulties, permanently learn,  it helps me to be confident.',
+    ],
+  },
+];
+
 export const articlesData = [
   {
     id: 1,

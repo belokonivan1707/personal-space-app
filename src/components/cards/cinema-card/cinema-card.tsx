@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+// import { useFuckingData } from 'pages/homepage/test-use-context';
 import { actionChangeFilmRating, actionChangeFavoriteProperty } from 'store/cinema/action';
 import RatingStar from '../../stars/stars';
 import { FilmsType } from '../../../store/cinema/data/data';
@@ -14,6 +15,9 @@ export interface Props {
 
 const CinemaCard = ({ props }: Props) => {
   const dispatch = useDispatch();
+
+  // const data = useFuckingData();
+
   const { id, title, director, country, image, year, rating, favorite } = props;
 
   const array = [1, 2, 3, 4, 5];
