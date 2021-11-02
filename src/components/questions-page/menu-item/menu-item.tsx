@@ -2,6 +2,7 @@ import style from './styles.module.css';
 
 interface Props {
   title: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleClick: (topic: any) => void;
 }
 

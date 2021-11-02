@@ -12,9 +12,10 @@ const QuestionCard = ({ handleClick, quest, title }: Props) => {
 
   return (
     <div className={style.questioncard}>
-      <div>qestion card</div>
-      <p>{title}</p>
-      <h3>{question}</h3>
+      <div>
+        <h3>{question}</h3>
+        <span>{title}</span>
+      </div>
       <ul>
         {answerOption.map(answer => {
           return (

@@ -21,7 +21,7 @@ export interface RootState {
   photosStore: PhotosState;
   userStore: UserStateType;
   questionsStore: QuestionsStoreType;
-  articlesReducer: ArticlesStoreTypes;
+  articlesStore: ArticlesStoreTypes;
 }
 
 const rootReducer = combineReducers({

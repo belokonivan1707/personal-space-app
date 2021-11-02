@@ -30,12 +30,12 @@ export const QUESTIONS_JS = {
       {
         id: 1,
         title: 'Immutability',
-        question: 'Как зовут Василия?',
+        question: 'What is a pure function? ',
         link: ' ',
-        rightAnswers: [{ id: 1, option: 'Василий' }],
+        rightAnswers: [{ id: 1, option: 'The function which does n0t has side effects' }],
         answerOption: [
-          { id: 1, option: 'Василий' },
-          { id: 2, option: 'Егор' },
+          { id: 1, option: 'The function which does not has side effects' },
+          { id: 2, option: 'The output always the same' },
           { id: 3, option: 'Анатолий' },
           { id: 4, option: 'Писков' },
         ],

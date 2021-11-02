@@ -40,14 +40,16 @@ const PassTheTest = ({ questions }: Props) => {
 
   return (
     <div className={style.questioncard}>
-      {testFinised ? null : <h2>Pass The Test</h2>}
-      {questions.slice(lastindex, currentindex).map((el: Questions) => {
-        return (
-          <div key={el.id}>
-            <QuestionCard title={el.title} quest={el} handleClick={dispatchUserAnswer} />
-          </div>
-        );
-      })}
+      {testFinised ? null : <h2 className={style.title}>Pass The Test</h2>}
+      {testFinised
+        ? null
+        : questions.slice(lastindex, currentindex).map((el: Questions) => {
+            return (
+              <div key={el.id}>
+                <QuestionCard title={el.title} quest={el} handleClick={dispatchUserAnswer} />
+              </div>
+            );
+          })}
       <div>
         {testFinised ? null : (
           <div>
