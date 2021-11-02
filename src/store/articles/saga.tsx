@@ -5,7 +5,6 @@ import { UsersCommentsData } from './types';
 // interface GetComments {
 //   getUsers: () => Promise<UsersCommentsData[]>;
 // }
-
 const commentsAPI = 'https://jsonplaceholder.typicode.com/comments';
 
 const getData = (url: string) => {
