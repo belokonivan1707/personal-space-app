@@ -1,9 +1,5 @@
 import { ArticlesDataTypes } from './data/data';
 
-export interface ArticlesStoreTypes {
-  articlesStore: ReducerArticlesState;
-}
-
 export interface UsersData {
   id: number;
   name: string;
@@ -37,7 +33,7 @@ export interface UsersCommentsData {
 }
 
 export interface UsersPostsData {
-  postId: number;
+  userId: number;
   id: number;
   title: string;
   body: string;
@@ -49,6 +45,15 @@ export interface PostsCommentsData {
   users: UsersData[];
 }
 
+export interface ProcessedPostData {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+  user: UsersData | unknown;
+  comments: UsersCommentsData[];
+}
+
 export interface ReducerArticlesState {
   articles: ArticlesDataTypes[];
   articlesEN: ArticlesDataTypes[];
@@ -58,6 +63,10 @@ export interface ReducerArticlesState {
     comments: [] | UsersCommentsData[];
     posts: [] | UsersPostsData[];
     users: [] | UsersData[];
-    processed: [] | any;
+    processed: [] | ProcessedPostData[];
   };
+}
+
+export interface ArticlesStoreTypes {
+  articlesStore: ReducerArticlesState;
 }

@@ -5,13 +5,17 @@ export const combinePostsCommentsUsers = (
   posts: UsersPostsData[],
   users: UsersData[]
 ) => {
-  const test = posts.map(post => {
-    return {
-      ...post,
-      // user:
-      comments: comments.filter(comment => comment.postId === post.id),
-    };
-  });
+  if (comments.length && posts.length && users.length) {
+    const processedPostsData = posts.map(post => {
+      return {
+        ...post,
+        user: users.find(user => user.id === post.userId),
+        comments: comments.filter(comment => comment.postId === post.id),
+      };
+    });
+
+    return processedPostsData;
+  }
 
   return [];
 };

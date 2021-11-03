@@ -39,7 +39,9 @@ const articlesReducer: Reducer<ReducerArticlesState, ActionsType> = (state = INN
           comments: action.payload.comments,
           posts: action.payload.posts,
           users: action.payload.users,
-          processed: combinePostsCommentsUsers(action.payload.comments, action.payload.posts, action.payload.users),
+          processed: [
+            ...combinePostsCommentsUsers(action.payload.comments, action.payload.posts, action.payload.users),
+          ],
         },
       };
 
