@@ -1,10 +1,11 @@
 import { Reducer } from 'react';
 import { REQUEST_SUCCESS, REQUEST_DATA, REQUEST_ERROR } from './consts';
 import { articlesData, ARTICLES_DATA } from './data/data';
-import { ReducerArticlesState, UsersCommentsData } from './types';
+import { ReducerArticlesState, PostsCommentsData } from './types';
+import { combinePostsCommentsUsers } from './utils';
 
 export type ActionsType =
-  | { type: 'REQUEST_SUCCESS'; payload: UsersCommentsData[] }
+  | { type: 'REQUEST_SUCCESS'; payload: PostsCommentsData }
   | { type: 'REQUEST_DATA' }
   | { type: 'REQUEST_ERROR' };
 
@@ -15,6 +16,9 @@ const INNITTIAL_STATE = {
   error: false,
   usersData: {
     comments: [],
+    posts: [],
+    users: [],
+    processed: [],
   },
 };
 
@@ -30,7 +34,13 @@ const articlesReducer: Reducer<ReducerArticlesState, ActionsType> = (state = INN
       return {
         ...state,
         loading: false,
-        usersData: { ...state.usersData, comments: action.payload },
+        usersData: {
+          ...state.usersData,
+          comments: action.payload.comments,
+          posts: action.payload.posts,
+          users: action.payload.users,
+          processed: combinePostsCommentsUsers(action.payload.comments, action.payload.posts, action.payload.users),
+        },
       };
 
     case REQUEST_ERROR:

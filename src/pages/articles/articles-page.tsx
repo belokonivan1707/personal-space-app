@@ -4,6 +4,7 @@ import { requestData } from 'store/articles/actions';
 import { ArticlesDataTypes } from 'store/articles/data/data';
 import { ArticlesStoreTypes } from 'store/articles/types';
 import ArticlesCard from 'components/articles/article-card/article-card';
+import PostsContainer from './containers/posts-container/posts-container';
 import style from './styles.module.css';
 
 interface Props {
@@ -111,6 +112,9 @@ const ArticlesPage = () => {
           </div>
         </div>
       </div>
+      <>
+        <PostsContainer />
+      </>
     </div>
   );
 };

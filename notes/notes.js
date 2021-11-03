@@ -1,3 +1,7 @@
+// interface GetComments {
+//   getUsers: () => Promise<UsersCommentsData[]>;
+// }
+
 // class MyComponent extends React.Component {
 //   shouldComponentUpdate(nextProps) {
 //     return nextProps.value !== this.props.value;

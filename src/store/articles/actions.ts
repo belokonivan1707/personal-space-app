@@ -1,5 +1,5 @@
 import { REQUEST_DATA, REQUEST_SUCCESS, REQUEST_ERROR } from './consts';
-import { UsersCommentsData } from './types';
+import { PostsCommentsData } from './types';
 
 export const requestData = () => {
   return {
@@ -7,7 +7,7 @@ export const requestData = () => {
   };
 };
 
-export const requestSuccess = (payload: UsersCommentsData[]) => {
+export const requestSuccess = (payload: PostsCommentsData) => {
   return {
     type: REQUEST_SUCCESS,
     payload,
