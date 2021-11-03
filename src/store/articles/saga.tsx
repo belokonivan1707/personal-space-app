@@ -1,15 +1,7 @@
 import { call, put, takeEvery, delay } from '@redux-saga/core/effects';
 import { requestSuccess, requestError } from './actions';
-<<<<<<< Updated upstream
-import { UsersCommentsData } from './types';
-
-// interface GetComments {
-//   getUsers: () => Promise<UsersCommentsData[]>;
-// }
-=======
 import { UsersCommentsData, UsersPostsData, UsersData } from './types';
 
->>>>>>> Stashed changes
 const commentsAPI = 'https://jsonplaceholder.typicode.com/comments';
 const postsAPI = 'https://jsonplaceholder.typicode.com/posts';
 const usersAPI = 'https://jsonplaceholder.typicode.com/users';
