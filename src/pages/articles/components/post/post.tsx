@@ -3,9 +3,10 @@ import style from './styles.module.css';
 
 interface Props {
   post: ProcessedPostData;
+  ref: any;
 }
 
-const Post = ({ post }: Props) => {
+const Post = ({ post, ref }: Props) => {
   // console.log(window.document.body.scrollHeight);
 
   const { id } = post;
