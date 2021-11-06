@@ -26,7 +26,7 @@ const Settings = ({ removeSettings, showArticles }: Props) => {
       <h5>Enter password for watching this articles</h5>
       <input type="password" value={inputPassword} onChange={e => setInputPassword(() => e.target.value)} />
       <button type="button" onClick={checkPassword} onKeyPress={checkPassword}>
-        Enter
+        Enter, so tired
       </button>
 
       <button type="button" onClick={removeSettings} onKeyPress={checkPassword}>
