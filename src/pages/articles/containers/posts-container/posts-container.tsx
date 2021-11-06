@@ -7,10 +7,12 @@ import style from './style.module.css';
 function useOnScreen(option: any) {
   const [visible, setVisible] = useState(false);
   const ref: any = useRef();
+  console.log(ref);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       setVisible(entry.isIntersecting);
+      console.log('setting visible');
     }, option);
 
     if (ref.current) {
@@ -31,7 +33,7 @@ const PostsContainer = () => {
   const posts = useSelector<ArticlesStoreTypes, ProcessedPostData[]>(store => store.articlesStore.usersData.processed);
 
   const [ref, visible] = useOnScreen({ threshold: 1.0 });
-
+  console.log('render');
   // console.log(visible);
 
   const [countPosts, setCountPosts] = useState({ from: 0, to: 5 });
@@ -42,6 +44,7 @@ const PostsContainer = () => {
       setCountPosts(() => ({ ...countPosts, to: to + 5 }));
       console.log('work');
     }
+    console.log('work');
   }, [visible]);
 
   console.log(to);
@@ -67,4 +70,4 @@ const PostsContainer = () => {
   );
 };
 
-export default PostsContainer;
+export default React.memo(PostsContainer);
