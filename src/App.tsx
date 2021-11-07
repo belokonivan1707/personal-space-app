@@ -23,7 +23,7 @@ export const TestUseContextStore = React.createContext(testString);
 const Loader = () => {
   return (
     <div>
-      <h1>LOADING...so tired</h1>
+      <h1>LOADING..</h1>
     </div>
   );
 };
