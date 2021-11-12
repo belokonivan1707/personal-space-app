@@ -4,6 +4,7 @@ import { requestData } from 'store/articles/actions';
 import { ArticlesDataTypes } from 'store/articles/data/data';
 import { ArticlesStoreTypes } from 'store/articles/types';
 import ArticlesCard from 'components/articles/article-card/article-card';
+import PostsContainer from './containers/posts-container/posts-container';
 import style from './styles.module.css';
 
 interface Props {
@@ -25,7 +26,7 @@ const Settings = ({ removeSettings, showArticles }: Props) => {
       <h5>Enter password for watching this articles</h5>
       <input type="password" value={inputPassword} onChange={e => setInputPassword(() => e.target.value)} />
       <button type="button" onClick={checkPassword} onKeyPress={checkPassword}>
-        Enter
+        Enter, so tired
       </button>
 
       <button type="button" onClick={removeSettings} onKeyPress={checkPassword}>
@@ -111,6 +112,9 @@ const ArticlesPage = () => {
           </div>
         </div>
       </div>
+      <>
+        <PostsContainer />
+      </>
     </div>
   );
 };

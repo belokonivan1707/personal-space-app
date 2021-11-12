@@ -1,12 +1,10 @@
 import { call, put, takeEvery, delay } from '@redux-saga/core/effects';
 import { requestSuccess, requestError } from './actions';
-import { UsersCommentsData } from './types';
-
-// interface GetComments {
-//   getUsers: () => Promise<UsersCommentsData[]>;
-// }
+import { UsersCommentsData, UsersPostsData, UsersData } from './types';
 
 const commentsAPI = 'https://jsonplaceholder.typicode.com/comments';
+const postsAPI = 'https://jsonplaceholder.typicode.com/posts';
+const usersAPI = 'https://jsonplaceholder.typicode.com/users';
 
 const getData = (url: string) => {
   return fetch(url)
@@ -19,11 +17,19 @@ const getData = (url: string) => {
 function* fetchUsers() {
   try {
     const comments: UsersCommentsData[] = yield call(getData, commentsAPI);
+    const posts: UsersPostsData[] = yield call(getData, postsAPI);
+    const users: UsersData[] = yield call(getData, usersAPI);
     yield delay(500);
-    yield put(requestSuccess(comments));
+    yield put(requestSuccess({ comments, posts, users }));
   } catch (e) {
     yield put(requestError());
   }
+}
+
+export default function* usersWatcher() {
+  yield takeEvery('REQUEST_DATA', fetchUsers);
+  // yield takeEvery('SINGLE_USER_REQUESTING', fetchSingleUser);
+  // yield takeEvery('POST_SINGLE_USER', postRequest);
 }
 
 // function* fetchSingleUser(action) {
@@ -47,12 +53,6 @@ function* fetchUsers() {
 //     yield put(postUsersError());
 //   }
 // }
-
-export default function* usersWatcher() {
-  yield takeEvery('REQUEST_DATA', fetchUsers);
-  // yield takeEvery('SINGLE_USER_REQUESTING', fetchSingleUser);
-  // yield takeEvery('POST_SINGLE_USER', postRequest);
-}
 
 // const getSingleUser = id => {
 //   return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
