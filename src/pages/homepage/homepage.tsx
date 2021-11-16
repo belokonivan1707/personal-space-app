@@ -59,7 +59,10 @@ const Homepage = () => {
       <div className={style.container}>
         <div className={style.homepage}>
           <div className={style.titlebox}>
-            <h1 className={style.title}>It is time to meet!</h1>
+            <h1 className={style.title}>
+              Monotonous soulless work will give more results and then you can return to the inner voice, argue with him
+              and try to negotiate.
+            </h1>
             <h1 className={style.title}>On this website, I share :</h1>
           </div>
 
