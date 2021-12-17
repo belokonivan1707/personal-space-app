@@ -6,19 +6,27 @@
 }
 
 .homepage {
-  padding-top: 20px;
 }
 
 .titlebox {
+  padding-top: 20px;
   margin-bottom: 20px;
-  padding: 0 10px;
 }
 
 .title {
   text-align: start;
   font-size: 56px;
-  line-height: 78px;
+  line-height: 62px;
   font-weight: bold;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 50px;
+  line-height: 72px;
+  font-weight: 600;
   letter-spacing: -1px;
   text-transform: uppercase;
 }
@@ -55,6 +63,10 @@
   justify-content: space-around;
   margin-bottom: 40px;
   padding: 0 5px;
+}
+
+.contentbox:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 1150px) {

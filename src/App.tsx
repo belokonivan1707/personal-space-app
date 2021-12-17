@@ -1,32 +1,28 @@
+/* eslint-disable import/order */
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import PrivateRoute from 'components/private-route/private-route';
+import Navigation from './containers/navigation/navigation';
+import Homepage from './pages/homepage/homepage';
+import BooksPage from './pages/blockspage/blockspage';
+import Photopage from './pages/photopage/photopage';
+import Loader from 'components/loader/loader';
 import SignInForm from 'containers/sign-in-form/sign-in-form';
 import SignUpForm from './containers/sign-up-form/sign-up-from';
-import Homepage from './pages/homepage/homepage';
-import Navigation from './containers/navigation/navigation';
+
 import { ProvideAuth } from './hooks/use-auth';
+import PrivateRoute from 'components/private-route/private-route';
 
-const BooksPage = React.lazy(() => import('./pages/bookspage/bookspage'));
-const QuestionPage = React.lazy(() => import('./pages/questionpage/questionpage'));
-const ArticlesPage = React.lazy(() => import('./pages/articles/articles-page'));
-const Blockspage = React.lazy(() => import('./pages/blockspage/blockspage'));
 const Cinemapage = React.lazy(() => import('./pages/cinemapage/cinemapage'));
-const Photopage = React.lazy(() => import('./pages/photopage/photopage'));
-
 const Welcomepage = React.lazy(() => import('./pages/welcomepage/welcomepage'));
+const MoneyManager = React.lazy(() => import('./pages/money-manager/money-manager'));
+
+// const QuestionPage = React.lazy(() => import('./pages/questionpage/questionpage'));
+// const ArticlesPage = React.lazy(() => import('./pages/articles/articles-page'));
+// const Blockspage = React.lazy(() => import('./pages/blockspage/blockspage'));
 
 const testString = 'Fucking bad news! Always the same! p.s: this string from use context';
 export const TestUseContextStore = React.createContext(testString);
-
-const Loader = () => {
-  return (
-    <div>
-      <h1>LOADING...</h1>
-    </div>
-  );
-};
 
 const App = () => {
   return (
@@ -41,16 +37,22 @@ const App = () => {
               <Route path="/photos" component={Photopage} />
               <Route path="/cinema" component={Cinemapage} />
               <Route path="/welcome" component={Welcomepage} />
-              <Route path="/questions" component={QuestionPage} />
               <Route path="/signup" component={SignUpForm} />
               <Route path="/signin" component={SignInForm} />
 
-              <PrivateRoute path="/blocksgame">
+              <PrivateRoute path="/moneymanager">
+                <MoneyManager />
+              </PrivateRoute>
+
+              {/* <PrivateRoute path="/blocksgame">
                 <Blockspage />
-              </PrivateRoute>
-              <PrivateRoute path="/articles">
+              </PrivateRoute> */}
+              {/* <PrivateRoute path="/questions">
+                <QuestionPage />
+              </PrivateRoute> */}
+              {/* <PrivateRoute path="/articles">
                 <ArticlesPage />
-              </PrivateRoute>
+              </PrivateRoute> */}
             </Switch>
           </Suspense>
         </Router>
