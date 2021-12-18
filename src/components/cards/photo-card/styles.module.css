@@ -1,4 +1,5 @@
 .photoBox {
+  background-color: black;
   position: relative;
   width: calc(33.3% - 20px);
   min-width: 330px;

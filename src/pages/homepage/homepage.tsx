@@ -1,14 +1,18 @@
+/* eslint-disable import/order */
 import { useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import CinemaCard from 'components/cards/cinema-card/cinema-card';
-import PhotoCard from 'components/cards/photo-card/photo-card';
-import { PhotosType } from 'store/photos/data/data';
-import { PhotosStore } from 'pages/photopage/photopage';
-import ProvideData from './test-use-context';
-import WriterCard from '../../components/cards/writer-card/writer-card';
-import { WritersType } from '../../store/writers/data';
+
 import { FilmsType } from '../../store/cinema/data/data';
+import { PhotosStore } from 'pages/photopage/photopage';
+import { PhotosType } from 'store/photos/data/data';
+import { WritersType } from '../../store/writers/data';
+
+import PhotoCard from 'components/cards/photo-card/photo-card';
+import CinemaCard from 'components/cards/cinema-card/cinema-card';
+import WriterCard from '../../components/cards/writer-card/writer-card';
+
+import ProvideData from './test-use-context';
 import style from './styles.module.css';
 
 interface CinemaStore {
@@ -59,10 +63,6 @@ const Homepage = () => {
       <div className={style.container}>
         <div className={style.homepage}>
           <div className={style.titlebox}>
-            <h1 className={style.title}>
-              Monotonous soulless work will give more results and then you can return to the inner voice, argue with him
-              and try to negotiate.
-            </h1>
             <h1 className={style.title}>On this website, I share :</h1>
           </div>
 
@@ -101,6 +101,12 @@ const Homepage = () => {
               })}
             </div>
           </div>
+          <section>
+            <h2 className={style.sectionTitle}>
+              Monotonous soulless work will give more results and then you can return to the inner voice, argue with him
+              and try to negotiate.
+            </h2>
+          </section>
         </div>
       </div>
     </ProvideData>
