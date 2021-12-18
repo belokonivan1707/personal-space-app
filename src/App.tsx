@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Navigation from './containers/navigation/navigation';
 import Homepage from './pages/homepage/homepage';
-import BooksPage from './pages/blockspage/blockspage';
+import BooksPage from './pages/bookspage/bookspage';
 import Photopage from './pages/photopage/photopage';
 import Loader from 'components/loader/loader';
 import SignInForm from 'containers/sign-in-form/sign-in-form';
@@ -16,10 +16,6 @@ import PrivateRoute from 'components/private-route/private-route';
 const Cinemapage = React.lazy(() => import('./pages/cinemapage/cinemapage'));
 const Welcomepage = React.lazy(() => import('./pages/welcomepage/welcomepage'));
 const MoneyManager = React.lazy(() => import('./pages/money-manager/money-manager'));
-
-// const QuestionPage = React.lazy(() => import('./pages/questionpage/questionpage'));
-// const ArticlesPage = React.lazy(() => import('./pages/articles/articles-page'));
-// const Blockspage = React.lazy(() => import('./pages/blockspage/blockspage'));
 
 const testString = 'Fucking bad news! Always the same! p.s: this string from use context';
 export const TestUseContextStore = React.createContext(testString);
