@@ -14,7 +14,7 @@ export interface PhotosStore {
 const Photopage = () => {
   const photos = useSelector<PhotosStore, PhotosType[]>(state => state.photosStore.photosToShow);
 
-  const [photoItem, setPhotoItem] = useState<PhotosType | any>([]);
+  const [photoItem, setPhotoItem] = useState<PhotosType | any>();
   const [openImage, setOpenImage] = useState(false);
   const [photosCounter, setPhotosCounter] = useState(10);
 

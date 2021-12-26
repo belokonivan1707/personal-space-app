@@ -1,7 +1,8 @@
 .form_container {
-  max-width: 420px;
+  max-width: 400px;
   min-height: 500px;
   border: 1px solid black;
+  transition: 0.3s;
 }
 
 .display {
@@ -82,6 +83,7 @@
 .categories_title_box {
   display: flex;
   justify-content: space-between;
+  text-align: center;
   padding: 10px 0px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -113,4 +115,20 @@
 
 .category_list {
   padding-top: 15px;
+}
+
+.form_wrapper {
+  position: relative;
+  border: 1px solid rebeccapurple;
+}
+
+.new_category_active {
+  animation: scale 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(0.7);
+  }
 }

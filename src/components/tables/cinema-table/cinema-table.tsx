@@ -31,6 +31,7 @@ const CinemaTable = ({ props }: Props) => {
       setSortConfig({ key, direction: 'ascending' });
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const sorted: FilmsType[] = props.sort((a: any, b: any) => {
       if (a[key] < b[key]) {
         return sortConfig.direction === 'ascending' ? -1 : 1;
