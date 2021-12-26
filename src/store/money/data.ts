@@ -1,29 +1,4 @@
-export interface PurchasesTypes {
-  id: string;
-  date: string;
-  amount: number;
-  comment: string | boolean;
-}
-
-export interface SubCategoryTypes {
-  id: string;
-  title: string;
-  type: string;
-  color: string;
-  subTotal: number;
-  purchases: PurchasesTypes[];
-}
-
-export interface CategoryTypes {
-  id: string;
-  title: string;
-  type: string;
-  color?: string;
-  total: number;
-  mainPurchases: PurchasesTypes[] | [];
-  purchases?: PurchasesTypes[] | [];
-  subcategories: SubCategoryTypes[] | [];
-}
+import { CategoryTypes } from './types';
 
 export const CATEGORIES: CategoryTypes[] = [
   {

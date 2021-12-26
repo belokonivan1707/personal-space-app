@@ -6,5 +6,5 @@ export const TOP_MENU = [
   // { id: 6, name: 'Articles', link: 'articles' },
   // { id: 7, name: 'Questions', link: 'questions' },
   // { id: 8, name: 'Sequense', link: 'blocksgame' },
-  { id: 9, name: 'Money Manager', link: 'moneymanager' },
+  { id: 9, name: 'Money Manager', link: 'moneymanager/menu' },
 ];

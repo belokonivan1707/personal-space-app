@@ -13,6 +13,8 @@ import { PhotosState } from './photos/types';
 import { UserStateType } from './user/types';
 import { QuestionsStoreType } from './question/types';
 import { ArticlesStoreTypes } from './articles/types';
+import { MoneyManagerState } from './money/types';
+import moneyReducer from './money/reducer';
 
 export interface RootState {
   cinemaStore: CinemaState;
@@ -22,6 +24,7 @@ export interface RootState {
   userStore: UserStateType;
   questionsStore: QuestionsStoreType;
   articlesStore: ArticlesStoreTypes;
+  moneyStore: MoneyManagerState;
 }
 
 const rootReducer = combineReducers({
@@ -32,6 +35,7 @@ const rootReducer = combineReducers({
   questionsStore: questionReducer,
   articlesStore: articlesReducer,
   blocksGame: blocksGameReducer,
+  moneyStore: moneyReducer,
 });
 
 export default rootReducer;

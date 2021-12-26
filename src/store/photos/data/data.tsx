@@ -1,7 +1,6 @@
 import IMG_1000 from './images/District.jpg';
 import IMG_1001 from './images/Door.jpg';
 import IMG_1002 from './images/Rain.jpg';
-import IMG_1003 from './images/Red-girl.jpg';
 import IMG_1004 from './images/Red-girls.jpg';
 import IMG_1005 from './images/Metro.jpg';
 import IMG_1006 from './images/transport.jpg';
@@ -44,7 +43,6 @@ export const PHOTOS = [
     id: 3,
     title: 'pseudo',
     image: IMG_0003,
-    // image: IMG_1003,
     mobileImg: IMG_0003,
     description: '',
     favorite: false,

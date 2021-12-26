@@ -36,7 +36,7 @@ const App = () => {
               <Route path="/signup" component={SignUpForm} />
               <Route path="/signin" component={SignInForm} />
 
-              <PrivateRoute path="/moneymanager">
+              <PrivateRoute path="/moneymanager/:section">
                 <MoneyManager />
               </PrivateRoute>
 
